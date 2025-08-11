@@ -1,11 +1,13 @@
 import React from 'react'
+import { Navigate, Outlet } from 'react-router'
 
 const LoginGuard = () => {
-    return (
-        <div>
+    const token = localStorage.getItem('token')
 
-        </div>
-    )
+    if (token) {
+        return <Navigate to="/home" replace />
+    }
+    return <Outlet />
 }
 
 export default LoginGuard

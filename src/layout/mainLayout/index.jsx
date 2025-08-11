@@ -1,14 +1,20 @@
 import React from 'react'
 import Header from './header/Header'
+import Footer from './footer'
+import { Outlet } from 'react-router'
 
 const MainLyout = () => {
     return (
         <>
-            <div className='max-w-[88vw] mx-auto'>
-                {/* Navbar/Header */}
-                <Header />
-                {/* outlate */}
-                {/* Footer */}
+            <div className='w-full bg-gradient-to-br from-white via-sky-100 to-sky-200'>
+                <div className='max-w-[88vw] mx-auto'>
+                    {/* Navbar/Header */}
+                    <Header />
+                    {/* outlate */}
+                    <Outlet />
+                    {/* Footer */}
+                    <Footer />
+                </div>
             </div>
         </>
     )
