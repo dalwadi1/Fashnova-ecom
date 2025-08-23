@@ -1,22 +1,31 @@
+import { products } from '@/lib/images'
 import React from 'react'
 
 const HeroSection = () => {
     return (
-        <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="row-span-2 bg-blue-100 h-[500px] flex items-center justify-center">
-                Women Clothes
+        <div className="grid sm:grid-cols-2 grid-cols-1 gap-4 mb-4">
+            <div className="row-span-2 bg-blue-100 flex items-center justify-center">
+                <div>
+                    <img src={products?.bg6} alt="" className='object-cover' />
+                </div>
             </div>
 
-            <div className="bg-pink-100 h-[240px] flex items-center justify-center">
-                Kid's Wear
+            <div className="bg-pink-100 flex items-center justify-center">
+                <div>
+                    <img src={products?.bg3} alt="" className='object-cover' />
+                </div>
             </div>
 
-            <div className="bg-green-100 row-span-2 h-[500px] flex items-center justify-center">
-                Men's Jackets
+            <div className="bg-green-100 row-span-2 flex items-center justify-center">
+                <div>
+                    <img src={products?.bg1} alt="" className='object-cover' />
+                </div>
             </div>
 
-            <div className=" bg-yellow-100 h-[240px] flex items-center justify-center">
-                Men's Wear
+            <div className=" bg-yellow-100 flex items-center justify-center">
+                <div>
+                    <img src={products?.bg4} alt="" className='object-cover' />
+                </div>
             </div>
         </div>
 
