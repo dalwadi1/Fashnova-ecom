@@ -4,32 +4,37 @@ import { MoveRight } from 'lucide-react'
 import React from 'react'
 import HeroSection from './HeroSection'
 import SubNavbar from './SubNavbar'
+import { useNavigate } from 'react-router'
+import { banner } from '@/lib/images'
 
 const Home = () => {
+    const navigate = useNavigate()
     return (
-        <div>
-            <div className="min-h-[70vh] py-5">
-                <Carousel className="h-full">
+        <div className=''>
+            <div className="py-5">
+                <div className="flex justify-center items-center relative">
+                    <img
+                        src={banner}
+                        alt="Winter Collection"
+                        className="max-w-full max-h-screen"
+                    />
+                </div>
+                <Carousel className="absolute lg:top-[26vh] top-[12vh] left-[12vw] max-w-[500px] hidden md:flex items-center">
                     <CarouselContent>
                         <CarouselItem>
-                            <div className="flex items-center justify-between h-[68vh] px-8">
+                            <div className="flex items-center justify-between h-full px-8">
                                 <div className="flex flex-col justify-center gap-4 max-w-lg">
                                     <p className="text-red-500 uppercase tracking-wide">
                                         Winter Collection
                                     </p>
-                                    <h2 className="text-5xl font-extrabold leading-tight">
-                                        New Collection 2025
+                                    <h2 className="lg:text-5xl lg:font-extrabold leading-tight">
+                                        New Collections 2025
                                     </h2>
-                                    <Button className="bg-gray-200 hover:bg-white h-[6vh] text-black px-6 py-3 w-[8vw] rounded-sm shadow-md flex items-center gap-2">
+                                    <Button
+                                        onClick={() => navigate('/shop')}
+                                        className="bg-gray-200 hover:bg-white h-[6vh] text-black px-6 cursor-pointer py-3 w-[8vw] rounded-sm shadow-md flex items-center gap-2">
                                         Shop Now <MoveRight />
                                     </Button>
-                                </div>
-                                <div className="flex justify-center items-center w-1/2">
-                                    <img
-                                        src="your-image-url-here"
-                                        alt="Winter Collection"
-                                        className="h-[60vh] object-cover rounded-lg shadow-lg"
-                                    />
                                 </div>
                             </div>
                         </CarouselItem>

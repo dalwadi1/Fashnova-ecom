@@ -5,10 +5,10 @@ import { Link } from 'react-router'
 
 const Footer = () => {
     return (
-        <div className='grid grid-cols-5 gap-3 px-5 bg-sky-50 p-5 shadow-lg border rounded-sm'>
+        <div className='grid md:grid-cols-5  grid-cols-1 gap-5 px-5 bg-sky-50 py-5 shadow-lg border rounded-sm'>
             <div className='flex flex-col gap-4'>
                 <Link to={'/'} className='cursor-pointer'>
-                    <img src={Main_Logo} alt="main-logo" className='w-[4vw] h-[8vh] rounded-full ' />
+                    <img src={Main_Logo} alt="main-logo" className='min-w-[4vw] h-[8vh] rounded-full ' />
                 </Link>
                 <p className=''>127, Ameethara society, Nana Varachha, Surat-395006</p>
                 <h5 className=''>+91 8141971499</h5>

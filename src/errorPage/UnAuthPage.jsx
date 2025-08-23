@@ -21,7 +21,7 @@ const UnAuthPage = () => {
                     <div className='flex items-center gap-2 flex-col py-8'>
                         <h4 className='text-2xl font-semibold'>Please log in to continue</h4>
                         <p>You must be logged in to access this page. Please log in to your account.</p>
-                        <p>Sign in <Link to='/login' className='underline text-sky-950 font-bold'>Here</Link>?</p>
+                        <p>Logn in <Link to='/login' className='underline text-sky-950 font-bold'>Here</Link>?</p>
                     </div>
                     <div className=''>
                         <Button
