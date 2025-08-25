@@ -16,13 +16,13 @@ const HeroSection = () => {
                 </div>
             </div>
 
-            <div className="bg-green-100 row-span-2 flex items-center justify-center">
+            <div className="row-span-2 flex items-center justify-center">
                 <div>
                     <img src={products?.bg1} alt="" className='object-cover' />
                 </div>
             </div>
 
-            <div className=" bg-yellow-100 flex items-center justify-center">
+            <div className="flex items-center justify-center">
                 <div>
                     <img src={products?.bg4} alt="" className='object-cover' />
                 </div>
