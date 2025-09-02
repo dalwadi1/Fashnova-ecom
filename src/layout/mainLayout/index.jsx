@@ -7,7 +7,7 @@ const MainLyout = () => {
     return (
         <>
             <div className='w-full bg-gradient-to-br from-white via-sky-100 to-sky-200'>
-                <div className='max-w-[88vw] mx-auto'>
+                <div className='max-w-[91vw] mx-auto'>
                     {/* Navbar/Header */}
                     <Header />
                     {/* outlate */}
