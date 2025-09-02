@@ -4,7 +4,7 @@ import { shop_banner } from '@/lib/images'
 import { ChevronDown, SlidersHorizontal, TableProperties } from 'lucide-react'
 import React, { useState } from 'react'
 import ShopStyle1 from './ShopStyle1'
-import Page from '@/components/ui/comman/page'
+import Page from '@/components/ui/comman/Page'
 
 const Shop = () => {
     const [showFilter, setShowFilter] = useState(false)
