@@ -1,9 +1,10 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Slider } from '@/components/ui/slider'
 import { shop_banner } from '@/lib/images'
-import { Briefcase, ChevronDown, CreditCard, Grid3x3, Headphones, LayoutGrid, ShieldHalf, SlidersHorizontal, TableProperties } from 'lucide-react'
+import { ChevronDown, SlidersHorizontal, TableProperties } from 'lucide-react'
 import React, { useState } from 'react'
 import ShopStyle1 from './ShopStyle1'
+import Page from '@/components/ui/comman/page'
 
 const Shop = () => {
     const [showFilter, setShowFilter] = useState(false)
@@ -106,37 +107,7 @@ const Shop = () => {
 
             <ShopStyle1 />
             <hr className='' />
-
-            <div className='grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 py-4'>
-                <div className='flex items-center px-2 gap-2'>
-                    <div><Briefcase size={30} /></div>
-                    <div>
-                        <h5 className='text-sm'>Free Shipping</h5>
-                        <p className='text-sm'>Capped at $10 per order</p>
-                    </div>
-                </div>
-                <div className='flex items-center px-2 gap-2'>
-                    <div><CreditCard size={30} /></div>
-                    <div>
-                        <h5>Free Shipping</h5>
-                        <p>Capped at $10 per order</p>
-                    </div>
-                </div>
-                <div className='flex items-center px-2 gap-2'>
-                    <div><ShieldHalf size={30} /></div>
-                    <div>
-                        <h5>Free Shipping</h5>
-                        <p>Capped at $10 per order</p>
-                    </div>
-                </div>
-                <div className='flex items-center px-2 gap-2'>
-                    <div><Headphones size={30} /></div>
-                    <div>
-                        <h5>Free Shipping</h5>
-                        <p>Capped at $10 per order</p>
-                    </div>
-                </div>
-            </div>
+            <Page />
         </>
     )
 }

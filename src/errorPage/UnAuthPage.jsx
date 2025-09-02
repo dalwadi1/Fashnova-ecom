@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import Page from '@/components/ui/comman/page'
 import Footer from '@/layout/mainLayout/footer'
 import Header from '@/layout/mainLayout/header/Header'
 import { Smile, UndoDot } from 'lucide-react'
@@ -8,14 +9,14 @@ import { Link, useNavigate } from 'react-router'
 const UnAuthPage = () => {
     const navigate = useNavigate()
     return (
-        <div className='w-full h-screen bg-gradient-to-br from-white via-sky-100 to-sky-200'>
+        <div className='w-full bg-gradient-to-br from-white via-sky-100 to-sky-200'>
             <div className='max-w-[88vw] mx-auto'>
                 <Header />
 
-                <div className='h-[43vh] flex items-center flex-col py-7 justify-center'>
+                <div className='flex items-center flex-col py-7 justify-center'>
                     <div className='flex-1'>
-                        <div className='w-[3vw] h-[7vh] flex items-center justify-center bg-sky-200 rounded-full shadow-sm'>
-                            <Smile size={18} className='text-red-400' />
+                        <div className='flex items-center justify-center bg-sky-200 rounded-full shadow-sm'>
+                            <Smile size={40} className='text-red-400' />
                         </div>
                     </div>
                     <div className='flex items-center gap-2 flex-col py-8'>
@@ -31,6 +32,7 @@ const UnAuthPage = () => {
                     </div>
                 </div>
 
+                <Page />
 
                 {/* Footer */}
                 <Footer />
