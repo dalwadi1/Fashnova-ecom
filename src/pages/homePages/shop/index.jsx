@@ -58,13 +58,6 @@ const Shop = () => {
                                 </DropdownMenuContent>
                             </DropdownMenu>
                         </div>
-                        {/* <div>
-                            <ul className='flex gap-2 items-center justify-center'>
-                                <li className='cursor-pointer'><Grid3x3 size={18} /></li>
-                                <li className='cursor-pointer'><LayoutGrid size={18} /></li>
-                                <li className='cursor-pointer'><TableProperties size={18} /></li>
-                            </ul>
-                        </div> */}
                     </div>
                 </div>
             </div>
