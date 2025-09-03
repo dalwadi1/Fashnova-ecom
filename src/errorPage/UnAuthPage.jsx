@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import Page from '@/components/ui/comman/page'
+import Page from '@/components/ui/comman/Page'
 import Footer from '@/layout/mainLayout/footer'
 import Header from '@/layout/mainLayout/header/Header'
 import { Smile, UndoDot } from 'lucide-react'
