@@ -5,6 +5,7 @@ import HeroSection from './HeroSection'
 import SubNavbar from './SubNavbar'
 import { useNavigate } from 'react-router'
 import { banner1, banner2, banner3 } from "@/lib/images"
+import MiniNav from "./MiniNav"
 
 const Home = () => {
     const navigate = useNavigate()
