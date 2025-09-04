@@ -7,6 +7,13 @@ export const banner3 = '/assets/images/homePage/banner3.jpg'
 //shop
 export const shop_banner = '/assets/images/shopPage/shop-banner.jpg'
 
+//logo products
+export const shirtLogo = '/assets/images/homePage/shirt.jpg'
+export const tShirtLogo = '/assets/images/homePage/tshirt.jpg'
+export const nightWear = '/assets/images/homePage/nightwear.jpg'
+export const jeans = '/assets/images/homePage/jeans.jpg'
+export const cargo = '/assets/images/homePage/cargo.jpg'
+
 //products 
 export const products = {
     product1: '/assets/images/products/imag1.jpg',
