@@ -1,86 +1,95 @@
 import { Main_Logo } from '@/lib/svgFils'
-import { CircleUser, Handbag, Heart, Menu, Search, X } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router'
+import { CircleUser, Handbag, Heart, Menu, Search, ShoppingCart, UserRound } from 'lucide-react'
+import React from 'react'
+import { Link } from 'react-router'
+import {
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet"
 
 const Header = () => {
-    const location = useLocation()
-    const [showManus, setShowManues] = useState(false)
-
-    useEffect(() => {
-        setShowManues(false)
-    }, [location])
     return (
-        <div className='sticky top-3 z-10 bg-white'>
-            <div className='p-2 flex items-center justify-between gap-4 shadow-lg border rounded-sm bg-white'>
-                <div className='sm:p-2 rounded-full'>
-                    <Link to={'/'} className='cursor-pointer'>
-                        <img src={Main_Logo} alt="main-logo" className='max-w-[10vw] max-h-[8vh] rounded-full ' />
-                    </Link>
-                </div>
-                <div className='px-3 md:hidden' onClick={() => setShowManues(!showManus)}>
-                    <ul className='flex gap-5 items-center'>
-                        <li>
-                            <button className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm'>
-                                {showManus ? <X size={20} /> : <Menu size={20} />}
-                            </button>
-                        </li>
-                    </ul>
+        <div className='sticky top-2 z-10 bg-white'>
+            <div className='sm:py-2 flex items-center sm:flex-row flex-col justify-between px-2 shadow-lg rounded-sm bg-white border'>
+                <div className='w-full flex items-center justify-between'>
+                    <div className='flex items-center justify-between'>
+                        <div className='md:hidden'>
+                            <Sheet>
+                                <SheetTrigger asChild>
+                                    <button className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm'>
+                                        <Menu size={24} />
+                                    </button>
+                                </SheetTrigger >
+                                <SheetContent side="left" className="w-64 h-full">
+                                    <ul className='flex flex-col gap-3 mt-4 px-4'>
+                                        <li>
+                                            <Link to='/' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm block'>
+                                                Home
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to='/shop' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm block'>
+                                                Shop
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to='/product' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm block'>
+                                                Products
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                    <ul className='flex gap-4 mt-6 px-4'>
+                                        <li>
+                                            <Link className='cursor-pointer' to=''><Search /></Link>
+                                        </li>
+                                        <li>
+                                            <Link className='cursor-pointer' to='/user'><CircleUser /></Link>
+                                        </li>
+                                        <li>
+                                            <Link className='cursor-pointer' to='/wishlist'><Heart /></Link>
+                                        </li>
+                                        <li>
+                                            <Link className='cursor-pointer' to='/cart'><Handbag /></Link>
+                                        </li>
+                                    </ul>
+                                </SheetContent >
+                            </Sheet>
+                        </div>
+
+                        <div className='sm:p-2 rounded-full'>
+                            <Link to={'/'} className='cursor-pointer'>
+                                <img src={Main_Logo} alt="main-logo" className='max-w-[9vw] max-h-[7vh] rounded-full ' />
+                            </Link>
+                        </div>
+                    </div>
+
+
+                    <div className='w-[60vw] hidden sm:flex relative px-4'>
+                        <input type="text" placeholder='search here...' className='bg-sky-50 w-full p-4 pl-[28px] rounded-sm' />
+                        <Search size={25} className='absolute top-4 pl-[4px]' />
+                    </div>
+
+                    <div className='flex'>
+                        <ul className='flex items-center gap-4'>
+                            <li>
+                                <Link className='cursor-pointer p-1' to='/user'><UserRound size={22} /></Link>
+                            </li>
+                            <li>
+                                <Link className='cursor-pointer p-1' to='/cart'><ShoppingCart size={22} /></Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div className='flex-1 px-3 sm:flex hidden'>
-                    <ul className='flex gap-5 items-center'>
-                        <li>
-                            <Link to='/' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm'>Home</Link></li>
-                        <li>
-                            <Link to='/shop' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm'>Shop</Link></li>
-                        <li>
-                            <Link to='/product' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm'>Products</Link></li>
-                    </ul>
-                </div>
-                <div className='sm:flex hidden'>
-                    <ul className='flex items-center gap-4'>
-                        <li>
-                            <Link className='cursor-pointer p-2' to=''><Search size={20} /></Link>
-                        </li>
-                        <li>
-                            <Link className='cursor-pointer p-2' to='/user'><CircleUser size={20} /></Link>
-                        </li>
-                        <li>
-                            <Link className='cursor-pointer p-2' to='/wishlist'><Heart size={20} /></Link>
-                        </li>
-                        <li>
-                            <Link className='cursor-pointer p-2' to='/cart'><Handbag size={20} /></Link>
-                        </li>
-                    </ul>
+                <div className='w-full sm:hidden flex relative mb-2'>
+                    <input type="text" placeholder='search here...' className='bg-sky-50 w-full p-2 pl-[28px] rounded-sm' />
+                    <Search size={25} className='absolute top-2 pl-[4px]' />
                 </div>
             </div>
-            {
-                showManus && <div className='flex flex-col items-center justify-between gap-3 py-3'>
-                    <ul className='flex flex-col gap-1 items-center'>
-                        <li>
-                            <Link to='/' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm sm:text-sm text-xs'>Home</Link></li>
-                        <li>
-                            <Link to='/shop' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm sm:text-sm text-xs'>Shop</Link></li>
-                        <li>
-                            <Link to='/product' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm sm:text-sm text-xs'>Products</Link></li>
-                    </ul>
-                    <ul className='flex items-center gap-3'>
-                        <li>
-                            <Link className='cursor-pointer' to=''><Search /></Link>
-                        </li>
-                        <li>
-                            <Link className='cursor-pointer' to='/user'><CircleUser /></Link>
-                        </li>
-                        <li>
-                            <Link className='cursor-pointer' to='/wishlist'><Heart /></Link>
-                        </li>
-                        <li>
-                            <Link className='cursor-pointer' to='/cart'><Handbag /></Link>
-                        </li>
-                    </ul>
-                </div>
-            }
         </div>
     )
 }

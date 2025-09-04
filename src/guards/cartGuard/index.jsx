@@ -3,14 +3,14 @@ import React from 'react'
 import { Navigate, Outlet } from 'react-router';
 import UnAuthCart from '@/errorPage/UnAuthCart';
 
-const ValidUserGaurd = () => {
+const CartGuard = () => {
     const user = JSON.parse(localStorage.getItem('user')) || null;
 
     if (true) {
-        return <Navigate to={'/login'} replace='true' />
+        return <UnAuthCart />
     }
 
     return <Outlet />
 }
 
-export default ValidUserGaurd
+export default CartGuard

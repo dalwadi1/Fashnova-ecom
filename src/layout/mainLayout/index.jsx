@@ -7,9 +7,9 @@ const MainLyout = () => {
     return (
         <>
             <div className='w-full min-h-screen bg-gradient-to-br from-white via-sky-100 to-sky-200'>
+                <Header />
                 <div className='max-w-[91vw] mx-auto'>
                     {/* Navbar/Header */}
-                    <Header />
                     {/* outlate */}
                     <Outlet />
                     {/* Footer */}

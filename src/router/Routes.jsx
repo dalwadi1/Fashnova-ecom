@@ -1,5 +1,6 @@
 import Error from "@/errorPage/Error";
-import UnAuthPage from "@/errorPage/UnAuthPage";
+import UnAuthPage from "@/errorPage/UnAuthCart";
+import CartGuard from "@/guards/cartGuard";
 import LoginGuard from "@/guards/loginGuard";
 import ValidUserGaurd from "@/guards/userGuard";
 import MainLayout from "@/layout/mainLayout";
@@ -13,6 +14,7 @@ import Shop from "@/pages/homePages/shop";
 import AboutUs from "@/pages/homePages/static/AboutUs";
 import ContactUs from "@/pages/homePages/static/ContactUs";
 import FAQs from "@/pages/homePages/static/FAQs";
+import Cart from "@/pages/userDashboard/cart";
 import UserPage from "@/pages/userDashboard/user";
 
 
@@ -86,11 +88,11 @@ export const router = createBrowserRouter(
         },
         {
             path: '/cart',
-            element: <ValidUserGaurd />,
+            element: <CartGuard />,
             children: [
                 {
                     index: true,
-                    element: <UserPage />
+                    element: <Cart />
                 },
             ]
         },
