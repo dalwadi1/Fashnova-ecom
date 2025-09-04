@@ -1,6 +1,8 @@
 
 //home
-export const banner = '/assets/images/homePage/banner-2.jpg'
+export const banner1 = '/assets/images/homePage/banner1.jpg'
+export const banner2 = '/assets/images/homePage/banner2.jpg'
+export const banner3 = '/assets/images/homePage/banner3.jpg'
 
 //shop
 export const shop_banner = '/assets/images/shopPage/shop-banner.jpg'

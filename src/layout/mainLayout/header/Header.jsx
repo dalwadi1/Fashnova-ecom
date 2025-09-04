@@ -5,9 +5,6 @@ import { Link } from 'react-router'
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
 
@@ -85,9 +82,9 @@ const Header = () => {
                     </div>
                 </div>
 
-                <div className='w-full sm:hidden flex relative mb-2'>
-                    <input type="text" placeholder='search here...' className='bg-sky-50 w-full p-2 pl-[28px] rounded-sm' />
-                    <Search size={25} className='absolute top-2 pl-[4px]' />
+                <div className='w-full sm:hidden flex relative mb-2 border rounded-sm'>
+                    <input type="text" placeholder='search here...' className='bg-sky-50 w-full p-1 pl-[28px] rounded-sm' />
+                    <Search size={23} className='absolute top-1 pl-[4px] text-xs' />
                 </div>
             </div>
         </div>
