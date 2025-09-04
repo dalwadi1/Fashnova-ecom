@@ -6,8 +6,8 @@ const ShopStyle1 = () => {
     return (
         <div className="grid sm:grid-cols-4 grid-cols-2 w-full">
             <div className="flex flex-col px-5 py-4">
-                <div className="rounded-sm flex items-center justify-center">
-                    <img src={products?.product1} alt="" className='max-h-[60vh] w-full' />
+                <div className="rounded-sm flex items-center justify-center py-1">
+                    <img src={products?.product1} alt="" className='max-h-[60vh] w-full rounded-sm' />
                 </div>
                 <div className='flex items-start gap-1 justify-between'>
                     <div className='flex items-center gap-2 sm:max-w-[10vw] flex-wrap py-2'>
@@ -28,8 +28,8 @@ const ShopStyle1 = () => {
                 <p className='sm:text-sm text-xs'>$123</p>
             </div>
             <div className="flex flex-col px-5 py-4">
-                <div className="rounded-sm flex items-center justify-center">
-                    <img src={products?.product6} alt="" className='max-h-[60vh] w-full' />
+                <div className="rounded-sm flex items-center justify-center py-1">
+                    <img src={products?.product6} alt="" className='max-h-[60vh] w-full rounded-sm' />
                 </div>
                 <div className='flex items-start gap-1 justify-between'>
                     <div className='flex items-center gap-2 sm:max-w-[10vw] flex-wrap py-2'>
@@ -50,8 +50,8 @@ const ShopStyle1 = () => {
                 <p className='sm:text-sm text-xs'>$123</p>
             </div>
             <div className="flex flex-col px-5 py-4">
-                <div className="rounded-sm flex items-center justify-center">
-                    <img src={products?.product2} alt="" className='max-h-[60vh] w-full' />
+                <div className="rounded-sm flex items-center justify-center py-1">
+                    <img src={products?.product2} alt="" className='max-h-[60vh] w-full rounded-sm' />
                 </div>
                 <div className='flex items-start gap-1 justify-between'>
                     <div className='flex items-center gap-2 sm:max-w-[10vw] flex-wrap py-2'>
@@ -72,8 +72,8 @@ const ShopStyle1 = () => {
                 <p className='sm:text-sm text-xs'>$123</p>
             </div>
             <div className="flex flex-col px-5 py-4">
-                <div className="rounded-sm flex items-center justify-center">
-                    <img src={products?.product3} alt="" className='max-h-[60vh] w-full' />
+                <div className="rounded-sm flex items-center justify-center py-1">
+                    <img src={products?.product3} alt="" className='max-h-[60vh] w-full rounded-sm' />
                 </div>
                 <div className='flex items-start gap-1 justify-between'>
                     <div className='flex items-center gap-2 sm:max-w-[10vw] flex-wrap py-2'>
@@ -94,8 +94,8 @@ const ShopStyle1 = () => {
                 <p className='sm:text-sm text-xs'>$123</p>
             </div>
             <div className="flex flex-col px-5 py-4">
-                <div className="rounded-sm flex items-center justify-center">
-                    <img src={products?.product4} alt="" className='max-h-[60vh] w-full' />
+                <div className="rounded-sm flex items-center justify-center py-1">
+                    <img src={products?.product4} alt="" className='max-h-[60vh] w-full rounded-sm' />
                 </div>
                 <div className='flex items-start gap-1 justify-between'>
                     <div className='flex items-center gap-2 sm:max-w-[10vw] flex-wrap py-2'>
@@ -116,8 +116,8 @@ const ShopStyle1 = () => {
                 <p className='sm:text-sm text-xs'>$123</p>
             </div>
             <div className="flex flex-col px-5 py-4">
-                <div className="rounded-sm flex items-center justify-center">
-                    <img src={products?.product5} alt="" className='max-h-[60vh] w-full' />
+                <div className="rounded-sm flex items-center justify-center py-1">
+                    <img src={products?.product5} alt="" className='max-h-[60vh] w-full rounded-sm' />
                 </div>
                 <div className='flex items-start gap-1 justify-between'>
                     <div className='flex items-center gap-2 sm:max-w-[10vw] flex-wrap py-2'>
@@ -138,8 +138,8 @@ const ShopStyle1 = () => {
                 <p className='sm:text-sm text-xs'>$123</p>
             </div>
             <div className="flex flex-col px-5 py-4">
-                <div className="rounded-sm flex items-center justify-center">
-                    <img src={products?.product6} alt="" className='max-h-[60vh] w-full' />
+                <div className="rounded-sm flex items-center justify-center py-1">
+                    <img src={products?.product6} alt="" className='max-h-[60vh] w-full rounded-sm' />
                 </div>
                 <div className='flex items-start gap-1 justify-between'>
                     <div className='flex items-center gap-2 sm:max-w-[10vw] flex-wrap py-2'>
@@ -160,8 +160,8 @@ const ShopStyle1 = () => {
                 <p className='sm:text-sm text-xs'>$123</p>
             </div>
             <div className="flex flex-col px-5 py-4">
-                <div className="rounded-sm flex items-center justify-center">
-                    <img src={products?.product7} alt="" className='max-h-[60vh] w-full' />
+                <div className="rounded-sm flex items-center justify-center py-1">
+                    <img src={products?.product7} alt="" className='max-h-[60vh] w-full rounded-sm' />
                 </div>
                 <div className='flex items-start gap-1 justify-between'>
                     <div className='flex items-center gap-2 sm:max-w-[10vw] flex-wrap py-2'>

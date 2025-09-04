@@ -10,7 +10,7 @@ const Shop = () => {
     const [showFilter, setShowFilter] = useState(false)
     return (
         <>
-            <div className='w-full'>
+            <div className='py-5'>
                 <div className='relative flex items-center justify-center'>
                     <img
                         src={shop_banner}

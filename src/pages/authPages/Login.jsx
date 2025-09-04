@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 
 const Login = () => {
     return (
-        <div className='w-full h-screen flex items-center justify-center bg-gradient-to-br from-white via-sky-100 to-sky-200'>
+        <div className='w-full h-dvh flex items-center justify-center bg-gradient-to-br from-white via-sky-100 to-sky-200'>
             <div className='max-w-[80vw] flex flex-col items-center justify-center bg-gradient-to-br from-white via-sky-100 to-sky-200 shadow-2xl p-2 rounded-md border-1'>
                 <div className='flex items-center justify-center rounded-full bg-sky-900 shadow-lg p-3 mt-3'>
                     <LogIn size={30} />
