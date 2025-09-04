@@ -20,19 +20,19 @@ const UnAuthPage = () => {
                         </div>
                     </div>
                     <div className='flex items-center gap-2 flex-col py-8'>
-                        <h4 className='text-2xl font-semibold'>Please log in to continue</h4>
-                        <p>You must be logged in to access this page. Please log in to your account.</p>
-                        <p>Logn in <Link to='/login' className='underline text-sky-950 font-bold'>Here</Link>?</p>
+                        <h4 className='sm:text-2xl text-lg font-semibold sm:font-bold'>Please log in to continue</h4>
+                        <p className='text-center sm:text-sm text-xs'>You must be logged in to access this page. Please log in to your account.</p>
+                        <p className='text-center sm:text-lg text-sm'>Logn in <Link to='/login' className='underline text-sky-950 font-bold'>Here</Link>?</p>
                     </div>
                     <div className=''>
                         <Button
                             onClick={() => navigate('/')}
-                            className='bg-sky-800 hover:bg-sky-800 px-8 py-6 text-white cursor-pointer                        
+                            className='bg-sky-800 hover:bg-sky-800 sm:text-lg text-sm sm:px-8 sm:py-6 text-white cursor-pointer                        
                         '><UndoDot />Back To Home</Button>
                     </div>
                 </div>
 
-                {/* <Page /> */}
+                <Page />
 
                 {/* Footer */}
                 <Footer />

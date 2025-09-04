@@ -22,7 +22,7 @@ const Header = () => {
                     <ul className='flex gap-5 items-center'>
                         <li>
                             <button className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm'>
-                                {showManus ? <X /> : <Menu />}
+                                {showManus ? <X size={20} /> : <Menu size={20} />}
                             </button>
                         </li>
                     </ul>
@@ -41,29 +41,29 @@ const Header = () => {
                 <div className='sm:flex hidden'>
                     <ul className='flex items-center gap-4'>
                         <li>
-                            <Link className='cursor-pointer p-2' to=''><Search /></Link>
+                            <Link className='cursor-pointer p-2' to=''><Search size={20} /></Link>
                         </li>
                         <li>
-                            <Link className='cursor-pointer p-2' to='/user'><CircleUser /></Link>
+                            <Link className='cursor-pointer p-2' to='/user'><CircleUser size={20} /></Link>
                         </li>
                         <li>
-                            <Link className='cursor-pointer p-2' to='/wishlist'><Heart /></Link>
+                            <Link className='cursor-pointer p-2' to='/wishlist'><Heart size={20} /></Link>
                         </li>
                         <li>
-                            <Link className='cursor-pointer p-2' to='/cart'><Handbag /></Link>
+                            <Link className='cursor-pointer p-2' to='/cart'><Handbag size={20} /></Link>
                         </li>
                     </ul>
                 </div>
             </div>
             {
-                showManus && <div className='flex flex-col items-center justify-between gap-4 py-3'>
-                    <ul className='flex flex-col gap-5 items-center'>
+                showManus && <div className='flex flex-col items-center justify-between gap-3 py-3'>
+                    <ul className='flex flex-col gap-1 items-center'>
                         <li>
-                            <Link to='/' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm'>Home</Link></li>
+                            <Link to='/' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm sm:text-sm text-xs'>Home</Link></li>
                         <li>
-                            <Link to='/shop' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm'>Shop</Link></li>
+                            <Link to='/shop' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm sm:text-sm text-xs'>Shop</Link></li>
                         <li>
-                            <Link to='/product' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm'>Products</Link></li>
+                            <Link to='/product' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm sm:text-sm text-xs'>Products</Link></li>
                     </ul>
                     <ul className='flex items-center gap-3'>
                         <li>
