@@ -1,10 +1,15 @@
 import { Main_Logo } from '@/lib/svgFils'
 import { CircleUser, Handbag, Heart, Menu, Search, X } from 'lucide-react'
-import React, { useState } from 'react'
-import { Link } from 'react-router'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router'
 
 const Header = () => {
+    const location = useLocation()
     const [showManus, setShowManues] = useState(false)
+
+    useEffect(() => {
+        setShowManues(false)
+    }, [location])
     return (
         <div className='sticky top-3 z-10 bg-white'>
             <div className='p-2 flex items-center justify-between gap-4 shadow-lg border rounded-sm bg-white'>
@@ -16,10 +21,13 @@ const Header = () => {
                 <div className='px-3 md:hidden' onClick={() => setShowManues(!showManus)}>
                     <ul className='flex gap-5 items-center'>
                         <li>
-                            <Link to='/' className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm'>{showManus ? <X /> : <Menu />}</Link>
+                            <button className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm'>
+                                {showManus ? <X /> : <Menu />}
+                            </button>
                         </li>
                     </ul>
                 </div>
+
                 <div className='flex-1 px-3 sm:flex hidden'>
                     <ul className='flex gap-5 items-center'>
                         <li>
