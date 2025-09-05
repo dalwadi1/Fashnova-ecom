@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 
 const Footer = () => {
     return (
-        <div className='grid md:grid-cols-5  grid-cols-1 gap-5 px-5 bg-sky-50 py-5 shadow-lg border rounded-sm'>
+        <div className='grid md:grid-cols-3 grid-cols-1 gap-5 px-5 bg-sky-50 py-5 shadow-lg border rounded-sm'>
             <div className='flex flex-col sm:gap-3 gap-2'>
                 <Link to={'/'} className='cursor-pointer'>
                     <img src={Main_Logo} alt="main-logo" className='min-w-[4vw] h-[8vh] rounded-full ' />
@@ -56,7 +56,7 @@ const Footer = () => {
                     </li>
                 </ul>
             </div>
-            <div className='flex flex-col gap-2 items-start'>
+            {/* <div className='flex flex-col gap-2 items-start'>
                 <div className='h-[4vw] flex items-center justify-center'>
                     <p className='text-sm font-medium'>COMPANY</p>
                 </div>
@@ -73,7 +73,7 @@ const Footer = () => {
                 <div className='h-[4vw] flex items-center justify-center'>
                     <p className='text-sm font-medium'>SUBSCRIBE</p>
                 </div>
-            </div >
+            </div > */}
         </div >
     )
 }
