@@ -62,8 +62,8 @@ const Header = () => {
                             </Sheet>
                         </div>
 
-                        <div className='sm:p-2 rounded-full'>
-                            <Link to={'/'} className='cursor-pointer'>
+                        <div className='sm:p-2 rounded-full flex items-center justify-center mb-1'>
+                            <Link to={'/'} className='cursor-pointer flex items-center justify-center'>
                                 <img src={Main_Logo1} alt="main-logo" className='h-19 w-19 rounded-full bg-transparent' />
                             </Link>
                         </div>
