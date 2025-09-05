@@ -1,4 +1,4 @@
-import { Main_Logo } from '@/lib/svgFils'
+import { Main_Logo, Main_Logo1 } from '@/lib/svgFils'
 import { CircleUser, Handbag, Heart, Menu, Search, ShoppingCart, UserRound } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
@@ -64,7 +64,7 @@ const Header = () => {
 
                         <div className='sm:p-2 rounded-full'>
                             <Link to={'/'} className='cursor-pointer'>
-                                <img src={Main_Logo} alt="main-logo" className='max-w-[9vw] max-h-[7vh] rounded-full ' />
+                                <img src={Main_Logo1} alt="main-logo" className='h-19 w-19 rounded-full bg-transparent' />
                             </Link>
                         </div>
                     </div>

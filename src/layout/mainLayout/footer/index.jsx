@@ -1,4 +1,4 @@
-import { Main_Logo } from '@/lib/svgFils'
+import { Main_Logo, Main_Logo1 } from '@/lib/svgFils'
 import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router'
@@ -8,7 +8,7 @@ const Footer = () => {
         <div className='grid md:grid-cols-3 grid-cols-1 gap-5 px-5 bg-sky-50 py-5 shadow-lg border rounded-sm'>
             <div className='flex flex-col sm:gap-3 gap-2'>
                 <Link to={'/'} className='cursor-pointer'>
-                    <img src={Main_Logo} alt="main-logo" className='min-w-[4vw] h-[8vh] rounded-full ' />
+                    <img src={Main_Logo1} alt="main-logo" className='min-w-[4vw] h-[8vh] rounded-full ' />
                 </Link>
                 <p className='sm:text-sm text-xs'>127, Ameethara society, Nana Varachha, Surat-395006</p>
                 <h5 className='sm:text-sm text-xs'>+91 8141971499</h5>
