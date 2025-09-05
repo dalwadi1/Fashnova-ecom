@@ -2,7 +2,7 @@ export const products = [
     { id: 1, name: "T-Shirt", price: 123, image: "/assets/images/products/imag1.jpg", category: "mens" },
     { id: 2, name: "Jeans", price: 200, image: "/assets/images/products/img2.jpg", category: "mens" },
     { id: 3, name: "Dress", price: 150, image: "/assets/images/products/img3.jpg", category: "women" },
-    { id: 4, name: "Skirt", price: 90, image: "/assets/images/products/img4.jpg", category: "women" },
+    { id: 4, name: "Shirt", price: 90, image: "/assets/images/products/img4.jpg", category: "women" },
     { id: 5, name: "Kids Shirt", price: 80, image: "/assets/images/products/img5.jpg", category: "kids" },
     { id: 6, name: "Kids Shoes", price: 70, image: "/assets/images/products/img6.jpg", category: "kids" },
 ]

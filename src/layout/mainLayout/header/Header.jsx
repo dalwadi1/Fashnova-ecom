@@ -5,19 +5,21 @@ import { Link, useLocation, useNavigate } from 'react-router'
 import {
     Sheet,
     SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
 import MiniNav from '@/pages/homePages/home/MiniNav'
+import { shirtLogo } from '@/lib/images'
 
 const categories = [
-    "Jeans",
-    "Trousers",
-    "Joggers",
-    "Casual",
-    "Formal",
-    "Printed",
-    "Polo",
-    "Graphic Tees",
+    { id: 1, name: "Jeans", image: '/assets/images/homePage/jeans.jpg' },
+    { id: 2, name: "Shirts", image: '/assets/images/homePage/shirt.jpg' },
+    { id: 3, name: "T-Shirt", image: '/assets/images/homePage/tshirt.jpg' },
+    { id: 4, name: "Night-Wears", image: '/assets/images/homePage/nightwear.jpg' },
+    { id: 5, name: "Pents", image: '/assets/images/homePage/jeans.jpg' },
+    { id: 6, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' }
 ];
 
 const Header = () => {
@@ -37,24 +39,33 @@ const Header = () => {
                 <div className='w-full flex items-center justify-between'>
                     <div className='flex items-center justify-between'>
                         <div className="md:hidden">
-                            <Sheet open={open} onOpenChange={setOpen}>
+                            <Sheet open={open} onOpenChange={setOpen} className='bg-sky-50'>
                                 <SheetTrigger asChild>
                                     <button className="cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm">
                                         <Menu size={24} />
                                     </button>
                                 </SheetTrigger>
-                                <SheetContent side="left" className="w-64 h-full" hideCloseButton>
-                                    <ul className="flex flex-col items-start px-12 justify-center h-full">
+                                <SheetContent side="left" className="w-full h-full bg-sky-50" hideCloseButton>
+                                    <SheetHeader>
+                                        <SheetTitle className='text-sm sm:text-lg'>Shiv Kids Fashion</SheetTitle>
+                                    </SheetHeader>
+
+                                    <ul className="flex flex-col items-start px-2 max-h-[80vh] overflow-y-scroll justify-center h-full">
                                         {categories.map((category) => (
                                             <li
-                                                key={category}
-                                                className={`text-sm py-2 cursor-pointer transition ${activeCategory === category
+                                                key={category?.id}
+                                                className={`text-sm py-2 cursor-pointer transition ${activeCategory === category?.name
                                                     ? "text-blue-600 font-semibold underline"
                                                     : "hover:underline"
                                                     }`}
-                                                onClick={() => handleNavigate(category)}
+                                                onClick={() => handleNavigate(category?.name)}
                                             >
-                                                {category}
+                                                <div className='flex flex-col items-start justify-center gap-1'>
+                                                    <div className="flex flex-col items-center justify-center">
+                                                        <img src={category?.image} alt="shirt" className="max-w-[15vw] max-h-[15vh] rounded-full" />
+                                                    </div>
+                                                    <div className='text-start'>{category?.name}</div>
+                                                </div>
                                             </li>
                                         ))}
                                     </ul>
