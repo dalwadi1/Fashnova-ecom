@@ -1,13 +1,11 @@
-import { Outdent } from 'lucide-react';
 import React from 'react'
-import { Navigate, Outlet } from 'react-router';
-import UnAuthCart from '@/errorPage/UnAuthCart';
+import { Navigate, Outlet } from 'react-router'
 
 const ValidUserGaurd = () => {
-    const user = JSON.parse(localStorage.getItem('user')) || null;
+    const token = JSON.parse(localStorage.getItem('token')) || null;
 
-    if (true) {
-        return <Navigate to={'/login'} replace='true' />
+    if (!token) {
+        return <Navigate to="/login" replace />
     }
 
     return <Outlet />

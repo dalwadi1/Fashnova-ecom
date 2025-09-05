@@ -96,16 +96,16 @@ export const router = createBrowserRouter(
                 },
             ]
         },
-        {
-            path: '/user',
-            element: <ValidUserGaurd />,
-            children: [
-                {
-                    index: true,
-                    element: <UserPage />
-                },
-            ]
-        },
+        // {
+        //     path: '/user',
+        //     element: <ValidUserGaurd />,
+        //     children: [
+        //         {
+        //             index: true,
+        //             element: <UserPage />
+        //         },
+        //     ]
+        // },
         {
             path: "/login",
             element: <LoginGuard />,
