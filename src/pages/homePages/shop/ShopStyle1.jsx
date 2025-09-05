@@ -1,21 +1,26 @@
 import React from "react";
 import { Heart, ShoppingCart } from "lucide-react";
-import { productList } from "@/database/products";
+import { useLocation } from "react-router";
+import { productsDB } from "@/database/productsDB";
 
 const ShopStyle1 = () => {
+    const { state } = useLocation();
+    const category = state?.toLowerCase();
+    const products = productsDB[category] || [];
+
     return (
         <div className="grid sm:grid-cols-4 grid-cols-2 w-full">
-            {productList.map((product) => (
+            {products.map((product) => (
                 <div
                     key={product.id}
                     className="relative flex flex-col px-5 py-4 border-b sm:border-0 group"
                 >
 
-                    <div className="rounded-sm flex items-center justify-center py-1 relative">
+                    <div className="rounded-sm flex items-center justify-center py-1 relative bg-sky-50 w-full">
                         <img
                             src={product.image}
                             alt={product.category}
-                            className="max-h-[60vh] w-full rounded-sm"
+                            className="sm:h-[40vh] h-[25vh] w-[50vw]"
                         />
 
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between">
@@ -29,6 +34,7 @@ const ShopStyle1 = () => {
                             </div>
                         </div>
                     </div>
+
                     <div className="flex items-center gap-2 sm:max-w-[10vw] flex-wrap py-2">
                         {product.colors.map((color, index) => (
                             <div
@@ -42,8 +48,9 @@ const ShopStyle1 = () => {
                             </div>
                         ))}
                     </div>
-                    <p className="sm:text-sm text-xs">{product.category}</p>
-                    <p className="sm:text-sm text-xs">${product.price}</p>
+
+                    <p className="sm:text-sm text-xs">{product.name}</p>
+                    <p className="sm:text-sm text-xs">{product.price}</p>
                 </div>
             ))}
         </div>

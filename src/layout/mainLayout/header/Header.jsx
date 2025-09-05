@@ -1,5 +1,5 @@
 import { Main_Logo, Main_Logo1 } from '@/lib/svgFils'
-import { CircleUser, Handbag, Heart, Menu, Search, ShoppingCart, UserRound } from 'lucide-react'
+import { Menu, Search, ShoppingCart, UserRound } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 import {
@@ -16,12 +16,12 @@ import { shirtLogo } from '@/lib/images'
 const categories = [
     { id: 1, name: "Jeans", image: '/assets/images/homePage/jeans.jpg' },
     { id: 2, name: "Shirts", image: '/assets/images/homePage/shirt.jpg' },
-    { id: 3, name: "T-Shirt", image: '/assets/images/homePage/tshirt.jpg' },
-    { id: 4, name: "Night-Wears", image: '/assets/images/homePage/nightwear.jpg' },
+    { id: 3, name: "tshirts", image: '/assets/images/homePage/tshirt.jpg' },
+    { id: 4, name: "nightwears", image: '/assets/images/homePage/nightwear.jpg' },
     { id: 5, name: "Pents", image: '/assets/images/homePage/jeans.jpg' },
-    { id: 7, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' },
-    // { id: 8, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' },
-    // { id: 9, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' },
+    { id: 7, name: "cargos", image: '/assets/images/homePage/cargo.jpg' },
+    { id: 8, name: "Trousers", image: '/assets/images/homePage/trousers.jpg' },
+    { id: 9, name: "Formal Pents", image: '/assets/images/homePage/formal.jpg' },
     // { id: 10, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' },
     // { id: 11, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' },
     // { id: 12, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' },
