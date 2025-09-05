@@ -15,13 +15,13 @@ const MiniNav = () => {
 
     const categories = [
         "Jeans",
+        "Shirts",
+        "tshirts",
+        "nightwears",
+        "Pents",
+        "cargos",
         "Trousers",
-        "Joggers",
-        "Casual",
-        "Formal",
-        "Printed",
-        "Polo",
-        "Graphic Tees"
+        "Formal Pents"
     ]
 
     const handleClick = (category) => {

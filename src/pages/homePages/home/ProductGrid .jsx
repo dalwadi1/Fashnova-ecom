@@ -18,7 +18,7 @@ export const ProductGrid = ({ category }) => {
             {filtered.map((item) => (
                 <div key={item.id} className="flex flex-col w-full gap-2">
                     <div className="bg-gray-200 flex items-center justify-center rounded-sm p-2">
-                        <img src={item.image} alt={item.name} className="h-[400px] w-full rounded-sm" />
+                        <img src={item.image} alt={item.name} className="max-h-[350px] w-full rounded-sm" />
                     </div>
                     <p className="sm:text-sm text-xs px-3">{item.name}</p>
                     <p className="sm:text-sm text-xs px-3">${item.price}</p>

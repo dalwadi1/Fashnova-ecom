@@ -5,13 +5,9 @@ import { Link, useLocation, useNavigate } from 'react-router'
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
 import MiniNav from '@/pages/homePages/home/MiniNav'
-import { shirtLogo } from '@/lib/images'
 
 const categories = [
     { id: 1, name: "Jeans", image: '/assets/images/homePage/jeans.jpg' },
