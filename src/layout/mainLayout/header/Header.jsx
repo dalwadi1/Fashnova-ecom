@@ -1,7 +1,7 @@
 import { Main_Logo } from '@/lib/svgFils'
 import { CircleUser, Handbag, Heart, Menu, Search, ShoppingCart, UserRound } from 'lucide-react'
-import React from 'react'
-import { Link } from 'react-router'
+import React, { useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router'
 import {
     Sheet,
     SheetContent,
@@ -9,32 +9,56 @@ import {
 } from "@/components/ui/sheet"
 import MiniNav from '@/pages/homePages/home/MiniNav'
 
+const categories = [
+    "Jeans",
+    "Trousers",
+    "Joggers",
+    "Casual",
+    "Formal",
+    "Printed",
+    "Polo",
+    "Graphic Tees",
+];
+
 const Header = () => {
+    const [open, setOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const activeCategory = location.state || "";
+
+    const handleNavigate = (category) => {
+        navigate("/shop", { state: category });
+        setOpen(false);
+    };
     return (
         <div className='sticky top-1 z-10 bg-white'>
             <div className='sm:py-2 flex items-center sm:flex-row flex-col justify-between sm:px-10 px-2 shadow-lg rounded-sm bg-white border'>
                 <div className='w-full flex items-center justify-between'>
                     <div className='flex items-center justify-between'>
-                        <div className='md:hidden'>
-                            <Sheet>
+                        <div className="md:hidden">
+                            <Sheet open={open} onOpenChange={setOpen}>
                                 <SheetTrigger asChild>
-                                    <button className='cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm'>
+                                    <button className="cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm">
                                         <Menu size={24} />
                                     </button>
-                                </SheetTrigger >
+                                </SheetTrigger>
                                 <SheetContent side="left" className="w-64 h-full" hideCloseButton>
-                                    <ul className='flex flex-col items-start px-12 justify-center h-full'>
-                                        <li className='text-sm py-2 hover:underline'>Jeans</li>
-                                        <li className='text-sm py-2 hover:underline'>Trousers</li>
-                                        <li className='text-sm py-2 hover:underline'>Joggers</li>
-                                        <li className='text-sm py-2 hover:underline'>Casual</li>
-                                        <li className='text-sm py-2 hover:underline'>Formal</li>
-                                        <li className='text-sm py-2 hover:underline'>Printed</li>
-                                        <li className='text-sm py-2 hover:underline'>Casual</li>
-                                        <li className='text-sm py-2 hover:underline'>Polo</li>
-                                        <li className='text-sm py-2 hover:underline'>Graphic Tees</li>
+                                    <ul className="flex flex-col items-start px-12 justify-center h-full">
+                                        {categories.map((category) => (
+                                            <li
+                                                key={category}
+                                                className={`text-sm py-2 cursor-pointer transition ${activeCategory === category
+                                                    ? "text-blue-600 font-semibold underline"
+                                                    : "hover:underline"
+                                                    }`}
+                                                onClick={() => handleNavigate(category)}
+                                            >
+                                                {category}
+                                            </li>
+                                        ))}
                                     </ul>
-                                </SheetContent >
+                                </SheetContent>
                             </Sheet>
                         </div>
 
