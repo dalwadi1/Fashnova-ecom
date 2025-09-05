@@ -5,64 +5,56 @@ import { ChevronDown, SlidersHorizontal, TableProperties } from 'lucide-react'
 import React, { useState } from 'react'
 import ShopStyle1 from './ShopStyle1'
 import Page from '@/components/ui/comman/Page'
+import { Link, useLocation } from 'react-router'
 
 const Shop = () => {
+    const { state } = useLocation()
     const [showFilter, setShowFilter] = useState(false)
     return (
         <>
             <div className='py-5'>
-                <div className='relative flex items-center justify-center'>
+                <div className='relative flex items-center justify-center mb-2'>
                     <img
                         src={shop_banner}
                         alt="Winter Collection"
-                        className="max-h-[65vh] w-full"
+                        className="max-h-[50vh] w-full"
                     />
                     <div className='flex flex-col gap-5 items-center justify-center p-3 absolute'>
-                        <h4 className='sm:text-2xl text-sm sm:font-bold'>Shop</h4>
+                        <h4 className='sm:text-2xl text-sm sm:font-bold'>{state}</h4>
                         <div className=''>
-                            <ul className='flex items-center justify-center gap-3'>
-                                <li className='cursor-pointer hover:underline hover:text-md text-xs'>Men</li>
-                                <li className='cursor-pointer hover:underline hover:text-md text-xs'>Speakers</li>
-                                <li className='cursor-pointer hover:underline hover:text-md text-xs'>Women</li>
-                                <li className='cursor-pointer hover:underline hover:text-md text-xs'>Accessories</li>
+                            <ul className='flex items-center gap-1 p-3'>
+                                <li className='sm:text-sm text-xs'><Link to={'/'} className='cursor-pointer'>Home</Link></li>
+                                <span>/</span>
+                                <li className='sm:text-sm text-xs cursor-pointer'>Shop</li>
+                                <span>/</span>
+                                <li className='sm:text-sm text-xs cursor-pointer'>{state}</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div className='grid sm:grid-cols-2 grid-cols-1 items-center'>
-                    <div className=''>
-                        <ul className='flex items-center gap-1 p-3'>
-                            <li className='sm:text-sm text-xs'>Home</li>
-                            <span>/</span>
-                            <li className='sm:text-sm text-xs'>Shop</li>
-                            <span>/</span>
-                            <li className='sm:text-sm text-xs'>Men</li>
-                        </ul>
+                <div className='sm:hidden flex items-center justify-between gap-5 sm:py-5'>
+                    <div
+                        onClick={() => setShowFilter(!showFilter)}
+                        className='flex gap-2 cursor-pointer sm:text-sm text-xs'>
+                        <span><SlidersHorizontal size={18} /></span>filters
                     </div>
-                    <div className='flex items-center sm:justify-end justify-between gap-5 px-5 sm:py-5'>
-                        <div
-                            onClick={() => setShowFilter(!showFilter)}
-                            className='flex gap-2 cursor-pointer sm:text-sm text-xs'>
-                            <span><SlidersHorizontal size={18} /></span>filters
-                        </div>
-                        <div className='bg-sky-50 p-1 rounded-sm' >
-                            <DropdownMenu className="focus:border-none">
-                                <DropdownMenuTrigger className="flex items-center gap-2 justify-between cursor-pointer sm:text-sm text-xs">Short by trending <ChevronDown /></DropdownMenuTrigger>
-                                <DropdownMenuContent>
-                                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                                    <DropdownMenuSeparator />
-                                    <DropdownMenuItem>Profile</DropdownMenuItem>
-                                    <DropdownMenuItem>Billing</DropdownMenuItem>
-                                    <DropdownMenuItem>Team</DropdownMenuItem>
-                                    <DropdownMenuItem>Subscription</DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        </div>
+                    <div className='bg-sky-50 rounded-sm' >
+                        <DropdownMenu className="focus:border-none">
+                            <DropdownMenuTrigger className="flex items-center gap-2 justify-between cursor-pointer sm:text-sm text-xs">Short by trending <ChevronDown /></DropdownMenuTrigger>
+                            <DropdownMenuContent>
+                                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>Profile</DropdownMenuItem>
+                                <DropdownMenuItem>Billing</DropdownMenuItem>
+                                <DropdownMenuItem>Team</DropdownMenuItem>
+                                <DropdownMenuItem>Subscription</DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                     </div>
                 </div>
             </div>
             {
-                showFilter && <div className='grid sm:grid-cols-3 grid-cols-1 py-5 bg-sky-50 mb-2 gap-4 px-5'>
+                showFilter && <div className='grid sm:grid-cols-3 grid-cols-1 py-2 bg-sky-50 gap-4 px-5'>
                     <div>
                         <p className='sm:text-sm text-xs'>Choose Size</p>
                         <div className='flex flex-wrap items-center gap-2 py-3'>
@@ -97,8 +89,42 @@ const Shop = () => {
                     </div>
                 </div>
             }
+            <div className='sm:hidden'>
+                <ShopStyle1 />
+            </div>
+            <div className="hidden sm:grid grid-cols-12 gap-4">
+                <div className="col-span-3 bg-sky-50 p-4 rounded-lg">
+                    <h2 className="font-semibold mb-3">Products Type</h2>
 
-            <ShopStyle1 />
+                    <div className="mb-4">
+                        <h3 className="font-medium">Category</h3>
+                        <ul className="space-y-2 text-sm">
+                            <li><input type="checkbox" /> Jeans</li>
+                            <li><input type="checkbox" /> Trousers</li>
+                            <li><input type="checkbox" /> Polo</li>
+                        </ul>
+                    </div>
+
+                    <div className="mb-4">
+                        <h3 className="font-medium">Price</h3>
+                        <input type="range" min="100" max="5000" className="w-full" />
+                    </div>
+
+                    <div>
+                        <h3 className="font-medium">Colors</h3>
+                        <div className="flex gap-2 mt-2">
+                            <div className="w-6 h-6 rounded-full bg-black cursor-pointer"></div>
+                            <div className="w-6 h-6 rounded-full bg-blue-500 cursor-pointer"></div>
+                            <div className="w-6 h-6 rounded-full bg-red-500 cursor-pointer"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="col-span-9 bg-white p-4 rounded-lg">
+                    <ShopStyle1 />
+                </div>
+            </div>
+
             <hr className='' />
             <Page />
         </>

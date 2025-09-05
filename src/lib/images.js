@@ -6,6 +6,7 @@ export const banner3 = '/assets/images/homePage/banner3.jpg'
 
 //shop
 export const shop_banner = '/assets/images/shopPage/shop-banner.jpg'
+export const shop_banner1 = '/assets/images/shopPage/banner4.jpg'
 
 //logo products
 export const shirtLogo = '/assets/images/homePage/shirt.jpg'

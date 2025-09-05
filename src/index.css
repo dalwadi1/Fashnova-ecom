@@ -131,7 +131,6 @@
   ... */
 }
 
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -140,4 +139,18 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow linear infinite;
 }
