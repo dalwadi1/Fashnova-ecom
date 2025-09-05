@@ -19,7 +19,12 @@ const categories = [
     { id: 3, name: "T-Shirt", image: '/assets/images/homePage/tshirt.jpg' },
     { id: 4, name: "Night-Wears", image: '/assets/images/homePage/nightwear.jpg' },
     { id: 5, name: "Pents", image: '/assets/images/homePage/jeans.jpg' },
-    { id: 6, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' }
+    { id: 7, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' },
+    // { id: 8, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' },
+    // { id: 9, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' },
+    // { id: 10, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' },
+    // { id: 11, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' },
+    // { id: 12, name: "Cargo", image: '/assets/images/homePage/cargo.jpg' },
 ];
 
 const Header = () => {
@@ -39,38 +44,57 @@ const Header = () => {
                 <div className='w-full flex items-center justify-between'>
                     <div className='flex items-center justify-between'>
                         <div className="md:hidden">
-                            <Sheet open={open} onOpenChange={setOpen} className='bg-sky-50'>
+                            <Sheet open={open} onOpenChange={setOpen}>
                                 <SheetTrigger asChild>
-                                    <button className="cursor-pointer hover:text-blue-700 hover:bg-sky-50 p-2 rounded-sm">
-                                        <Menu size={24} />
+                                    <button className="cursor-pointer hover:text-pink-600 hover:bg-pink-50 p-2 rounded-sm">
+                                        <Menu size={28} />
                                     </button>
                                 </SheetTrigger>
-                                <SheetContent side="left" className="w-full h-full bg-sky-50" hideCloseButton>
-                                    <SheetHeader>
-                                        <SheetTitle className='text-sm sm:text-lg'>Shiv Kids Fashion</SheetTitle>
-                                    </SheetHeader>
 
-                                    <ul className="flex flex-col items-start px-2 max-h-[80vh] overflow-y-scroll justify-center h-full">
+                                <SheetContent
+                                    side="left"
+                                    className="w-full h-full bg-white px-4 py-3"
+                                    hideCloseButton
+                                >
+
+                                    <div className="flex items-center justify-between mb-4 border-b pb-2">
+                                        <h2 className="text-lg font-bold">Shiv Kids Fashion</h2>
+                                        <button onClick={() => setOpen(false)} className="text-gray-600 hover:text-pink-600">
+                                            ✕
+                                        </button>
+                                    </div>
+
+                                    {/* <div className="relative mb-4">
+                                        <input
+                                            type="text"
+                                            placeholder="Search for products"
+                                            className="w-full border rounded-md pl-10 py-2 text-sm focus:outline-pink-500"
+                                        />
+                                        <Search size={18} className="absolute top-2.5 left-3 text-gray-400" />
+                                    </div> */}
+
+                                    <ul className="grid grid-cols-2 gap-4 max-h-[70vh] overflow-y-auto">
                                         {categories.map((category) => (
                                             <li
                                                 key={category?.id}
-                                                className={`text-sm py-2 cursor-pointer transition ${activeCategory === category?.name
-                                                    ? "text-blue-600 font-semibold underline"
-                                                    : "hover:underline"
-                                                    }`}
                                                 onClick={() => handleNavigate(category?.name)}
+                                                className={`cursor-pointer flex flex-col items-center text-center p-2 rounded-md border hover:shadow-md transition ${activeCategory === category?.name
+                                                    ? "border-pink-500 text-pink-600 font-semibold"
+                                                    : "border-gray-200"
+                                                    }`}
                                             >
-                                                <div className='flex flex-col items-start justify-center gap-1'>
-                                                    <div className="flex flex-col items-center justify-center">
-                                                        <img src={category?.image} alt="shirt" className="max-w-[15vw] max-h-[15vh] rounded-full" />
-                                                    </div>
-                                                    <div className='text-start'>{category?.name}</div>
-                                                </div>
+                                                <img
+                                                    src={category?.image}
+                                                    alt={category?.name}
+                                                    className="w-16 h-16 rounded-full object-cover mb-1"
+                                                />
+                                                <span className="text-xs sm:text-sm">{category?.name}</span>
                                             </li>
                                         ))}
                                     </ul>
                                 </SheetContent>
                             </Sheet>
+
                         </div>
 
                         <div className='sm:p-2 rounded-full flex items-center justify-center mb-1'>
