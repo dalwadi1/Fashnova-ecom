@@ -16,10 +16,18 @@ import AboutUs from "@/pages/homePages/static/AboutUs";
 import ContactUs from "@/pages/homePages/static/ContactUs";
 import FAQs from "@/pages/homePages/static/FAQs";
 import Cart from "@/pages/userDashboard/cart";
-import UserPage from "@/pages/userDashboard/user";
+import Profile from "@/pages/userDashboard/profile";
+import UserPage from "@/pages/userDashboard/order";
 
 
 import { createBrowserRouter } from "react-router";
+import Order from "@/pages/userDashboard/order";
+import Wishlist from "@/pages/userDashboard/wishlist";
+import Address from "@/pages/userDashboard/address";
+import Paymets from "@/pages/userDashboard/payment";
+import OrderReturn from "@/pages/userDashboard/orderReturn";
+import Notification from "@/pages/userDashboard/notification";
+import Security from "@/pages/userDashboard/security";
 
 
 export const router = createBrowserRouter(
@@ -60,22 +68,61 @@ export const router = createBrowserRouter(
                 {
                     path: 'faq',
                     element: <FAQs />
-                }
+                },
+
+            ]
+        },
+        {
+            path: '/user',
+            element: <ValidUserGaurd />,
+            children: [
+                {
+                    path: '/user',
+                    element: <UserLayout />,
+                    children: [
+                        {
+                            path: 'profile',
+                            element: <Profile />
+                        },
+                        {
+                            path: 'orders',
+                            element: <Order />
+                        },
+                        {
+                            path: 'wishlist',
+                            element: <Wishlist />
+                        },
+                        {
+                            path: 'cart',
+                            element: <Cart />
+                        },
+                        {
+                            path: 'addresses',
+                            element: <Address />
+                        },
+                        {
+                            path: 'payments',
+                            element: <Paymets />
+                        },
+                        {
+                            path: 'returns',
+                            element: <OrderReturn />
+                        },
+                        {
+                            path: 'notifications',
+                            element: <Notification />
+                        },
+                        {
+                            path: 'security',
+                            element: <Security />
+                        }
+                    ]
+                },
             ]
         },
         {
             path: 'unauthorize-user',
             element: <UnAuthPage />,
-        },
-        {
-            path: 'user',
-            element: <ValidUserGaurd />,
-            children: [
-                {
-                    index: true,
-                    element: <UserLayout />
-                },
-            ]
         },
         {
             path: '/wishlist',

@@ -15,7 +15,7 @@ const ShopStyle1 = () => {
                     key={product.id}
                     className="relative flex flex-col px-2 py-1 border-b sm:border-0 group"
                 >
-                    <div className="rounded-sm flex items-center justify-center relative bg-sky-50 w-full max-h-[250px]">
+                    <div className="rounded-sm flex items-center justify-center relative bg-sky-50 w-full !max-h-[250px]">
                         <img
                             src={product.image}
                             alt={product.category}
