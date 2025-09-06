@@ -21,6 +21,7 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet"
 import Footer from "../mainLayout/footer";
+import Logout from "@/pages/userDashboard/logout";
 
 const userRoutes = [
     { path: "/user", label: "User", icon: <User /> },
@@ -39,6 +40,7 @@ const UserLayout = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
+    const [openDialog, setOpenDialog] = useState(false)
 
     const activeCategory = location.state || "";
 
@@ -47,6 +49,13 @@ const UserLayout = () => {
         setOpen(false);
     };
 
+    const handleLogout = () => {
+        setOpenDialog(true)
+    }
+
+    const handleClose = () => {
+        setOpenDialog(false)
+    }
     return (
         <div className="min-h-screen mx-auto">
             <div className="hidden sm:flex items-center bg-sky-100 p-4 rounded-lg sm:my-2 sticky top-1">
@@ -95,8 +104,8 @@ const UserLayout = () => {
                                 </ul>
                             </div>
 
-                            <div className="flex items-center w-full bg-sky-50">
-                                <button className="flex p-2 gap-2 text-gray-500">
+                            <div className="flex items-center w-full bg-sky-50 cursor-pointer" onClick={handleLogout}>
+                                <button className="flex p-2 gap-2 text-gray-500 cursor-pointer">
                                     <LogOut /> Logout
                                 </button>
                             </div>
@@ -151,7 +160,7 @@ const UserLayout = () => {
                                     </Sheet>
                                 </div>
                                 <div className="">
-                                    <div className="flex-1 bg-sky-100 py-2 sm:hidden">
+                                    <div className="flex-1 bg-sky-100 py-2 sm:hidden mb-2">
                                         <h2 className="text-lg font-bold text-center">Welcome back, Rutvik 👋</h2>
                                         <p className="text-sm text-gray-600 text-center">
                                             Manage your profile, orders, wishlist and more from your dashboard.
@@ -229,6 +238,9 @@ const UserLayout = () => {
                 </div>
             </div>
             <Footer />
+            {
+                openDialog && <Logout open={openDialog} handleClose={handleClose} />
+            }
         </div>
     );
 };

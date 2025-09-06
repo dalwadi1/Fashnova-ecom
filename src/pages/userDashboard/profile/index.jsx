@@ -3,7 +3,7 @@ import { User, Mail, Phone, MapPin, Camera } from "lucide-react";
 
 const ProfilePage = () => {
     return (
-        <div className=" bg-gray-50 p-6 flex justify-center">
+        <div className=" bg-gray-50 p-2 flex justify-center">
             <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="bg-white rounded-2xl shadow p-6 flex flex-col items-center">
                     <div className="relative">
