@@ -9,18 +9,17 @@ const ShopStyle1 = () => {
     const products = productsDB[category] || [];
 
     return (
-        <div className="grid sm:grid-cols-4 grid-cols-2 w-full">
+        <div className="grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 w-full">
             {products.map((product) => (
                 <div
                     key={product.id}
-                    className="relative flex flex-col px-5 py-4 border-b sm:border-0 group"
+                    className="relative flex flex-col px-2 py-1 border-b sm:border-0 group"
                 >
-
-                    <div className="rounded-sm flex items-center justify-center py-1 relative bg-sky-50 w-full">
+                    <div className="rounded-sm flex items-center justify-center relative bg-sky-50 w-full max-h-[250px]">
                         <img
                             src={product.image}
                             alt={product.category}
-                            className="sm:h-[40vh] h-[25vh] w-[50vw]"
+                            className="w-full h-full object-cover rounded-lg p-1"
                         />
 
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between">

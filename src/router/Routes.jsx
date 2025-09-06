@@ -4,6 +4,7 @@ import CartGuard from "@/guards/cartGuard";
 import LoginGuard from "@/guards/loginGuard";
 import ValidUserGaurd from "@/guards/userGuard";
 import MainLayout from "@/layout/mainLayout";
+import UserLayout from "@/layout/userLayout";
 import Login from "@/pages/authPages/Login";
 import Register from "@/pages/authPages/Register";
 import Blog from "@/pages/homePages/blog/Blog";
@@ -67,12 +68,12 @@ export const router = createBrowserRouter(
             element: <UnAuthPage />,
         },
         {
-            path: '/user',
+            path: 'user',
             element: <ValidUserGaurd />,
             children: [
                 {
                     index: true,
-                    element: <UserPage />
+                    element: <UserLayout />
                 },
             ]
         },
