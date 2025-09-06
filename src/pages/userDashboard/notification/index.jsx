@@ -30,7 +30,7 @@ const Notifications = () => {
     ];
 
     return (
-        <div className="p-2 bg-gray-50 rounded-lg">
+        <div className="min-h-screen p-2 bg-gray-50 rounded-lg">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                 <Bell className="text-sky-600" /> Notifications
             </h2>

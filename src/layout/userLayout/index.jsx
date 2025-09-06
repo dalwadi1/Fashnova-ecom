@@ -162,7 +162,7 @@ const UserLayout = () => {
                                         </SheetContent>
                                     </Sheet>
                                 </div>
-                                <div className="">
+                                <div className="min-h-screen">
                                     <div className="flex-1 bg-sky-100 py-2 sm:hidden mb-2">
                                         <h2 className="text-lg font-bold text-center">Welcome back, Rutvik 👋</h2>
                                         <p className="text-sm text-gray-600 text-center">

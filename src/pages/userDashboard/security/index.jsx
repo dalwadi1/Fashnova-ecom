@@ -3,7 +3,7 @@ import { Shield, Lock, Smartphone, Globe } from "lucide-react";
 
 const Security = () => {
     return (
-        <div className="p-6 bg-gray-50 rounded-lg">
+        <div className="p-6 bg-gray-50 rounded-lg min-h-screen ">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                 <Shield className="text-sky-600" /> Security Settings
             </h2>

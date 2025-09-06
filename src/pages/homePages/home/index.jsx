@@ -22,15 +22,16 @@ const Home = () => {
                 >
                     <CarouselContent>
                         <CarouselItem className="flex justify-center items-center sm:h-[50vh] h-[25vh]">
-                            <img src={banner1} alt="" className="w-full object-cover h-full" />
+                            <img src={banner1} alt="banner1" className="w-full h-full object-cover" />
                         </CarouselItem>
-                        <CarouselItem className="flex justify-center items-center  sm:h-[50vh] h-[25vh]">
-                            <img src={banner2} alt="" className="w-full object-cover h-full" />
+                        <CarouselItem className="flex justify-center items-center sm:h-[50vh] h-[25vh]">
+                            <img src={banner2} alt="banner2" className="w-full h-full object-cover" />
                         </CarouselItem>
-                        <CarouselItem className="flex justify-center items-cente sm:h-[50vh] h-[25vh]">
-                            <img src={banner3} alt="" className="w-full object-cover h-full" />
+                        <CarouselItem className="flex justify-center items-center sm:h-[50vh] h-[25vh]">
+                            <img src={banner3} alt="banner3" className="w-full h-full object-cover" />
                         </CarouselItem>
                     </CarouselContent>
+
                 </Carousel>
             </div>
             {/* <div className="flex items-center justify-between py-3 bg-sky-100 px-4 mb-3">

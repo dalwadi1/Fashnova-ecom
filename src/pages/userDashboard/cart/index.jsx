@@ -56,7 +56,7 @@ const Cart = () => {
     );
 
     return (
-        <div className="bg-gray-50 p-2">
+        <div className="bg-gray-50 p-2 min-h-screen">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                 <ShoppingBag className="text-sky-600" /> My Cart
             </h2>

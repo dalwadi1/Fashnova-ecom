@@ -24,7 +24,7 @@ const wishlistItems = [
 
 const Wishlist = () => {
     return (
-        <div className="bg-gray-50 p-2">
+        <div className="bg-gray-50 p-2 min-h-screen">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                 <Heart className="text-red-500" /> My Wishlist
             </h2>
