@@ -155,6 +155,9 @@ const UserLayout = () => {
                                                         <span className="text-xs sm:text-sm">{category?.label}</span>
                                                     </li>
                                                 ))}
+                                                <div className="flex flex-col text-xs sm:text-sm items-center text-center p-2 rounded-md border hover:shadow-md transition" onClick={handleLogout}>
+                                                    <LogOut /> Logout
+                                                </div>
                                             </ul>
                                         </SheetContent>
                                     </Sheet>
