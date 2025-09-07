@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Main_Logo1 } from "@/lib/svgFils"
+import { useDispatch } from "react-redux"
+import { userLogIn } from "@/redux/actions/auth.action"
 
 const loginSchema = z.object({
     email: z.string().email("Please enter a valid email"),
@@ -22,6 +24,7 @@ const loginSchema = z.object({
 })
 
 const Login = () => {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const form = useForm({
         resolver: zodResolver(loginSchema),
@@ -32,9 +35,7 @@ const Login = () => {
     })
 
     const onSubmit = (values) => {
-        console.log("Login data:", values)
-        localStorage.setItem("user", JSON.stringify(values))
-        localStorage.setItem("token", JSON.stringify(true))
+        dispatch(userLogIn(values))
         navigate("/")
     }
 

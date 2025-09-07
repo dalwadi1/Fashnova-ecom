@@ -2,7 +2,7 @@ import React from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
 import { UserRoundPlus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -15,8 +15,9 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Main_Logo1 } from "@/lib/svgFils"
+import { useDispatch } from "react-redux"
+import { Registeration } from "@/redux/actions/auth.action"
 
-// ✅ Validation schema
 const registerSchema = z.object({
     name: z.string().min(2, "Name is required"),
     email: z.string().email("Enter a valid email"),
@@ -28,6 +29,8 @@ const registerSchema = z.object({
 })
 
 const Register = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
     const form = useForm({
         resolver: zodResolver(registerSchema),
         defaultValues: {
@@ -39,8 +42,8 @@ const Register = () => {
     })
 
     const onSubmit = (values) => {
-        console.log("Register data:", values)
-        // 👉 Yahan API call kar sakte ho (axios/fetch)
+        dispatch(Registeration(values))
+        navigate('/login')
     }
 
     return (
