@@ -269,13 +269,13 @@ const Header = () => {
                                         <div className="flex gap-3">
                                             <button
                                                 onClick={() => navigate("/cart")}
-                                                className="w-1/2 border border-sky-600 text-sky-600 rounded-lg py-2 hover:bg-sky-50"
+                                                className="border border-sky-600 text-sky-600 w-full p-1 sm:text-sm text-xs rounded-lg hover:bg-sky-50"
                                             >
                                                 My Cart
                                             </button>
                                             <button
                                                 onClick={() => navigate("/check-address")}
-                                                className="w-1/2 bg-sky-50 text-sky-600 rounded-lg py-2 hover:bg-sky-100"
+                                                className="bg-sky-50 text-sky-600 rounded-lg w-full p-1 sm:text-sm text-xs hover:bg-sky-100"
                                             >
                                                 Checkout
                                             </button>

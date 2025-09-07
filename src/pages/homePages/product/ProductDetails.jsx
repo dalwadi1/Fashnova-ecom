@@ -5,9 +5,6 @@ import { useLocation } from 'react-router';
 const ProductDetails = () => {
     const { state } = useLocation()
     const [quantity, setQuantity] = useState(1)
-
-    console.log(state);
-
     const product = {
         name: "Nike Air Max Sneakers",
         image: "https://via.placeholder.com/500",
@@ -29,7 +26,7 @@ const ProductDetails = () => {
             "High-quality sneakers with modern design and extra comfort. Perfect for running, casual wear, and gym workouts.",
     };
     return (
-        <div className="bg-white rounded-sm grid md:grid-cols-2 px-2 sm:py-12 py-6 mb-2 mt-2">
+        <div className="bg-white rounded-sm grid md:grid-cols-2 px-2 sm:py-12 py-2 mb-2 mt-2 gap-7">
             <div className="flex flex-col items-center gap-8">
                 <div className="rounded-2xl flex items-center justify-center">
                     <img
@@ -39,7 +36,7 @@ const ProductDetails = () => {
                     />
                 </div>
 
-                <div className="flex sm:w-[30vw] w-[65vw] gap-2 overflow-x-auto">
+                <div className="flex sm:w-[30vw] w-[65vw] gap-2 overflow-x-auto py-2">
                     {product.gallery?.map((img, i) => (
                         <img
                             key={i}
