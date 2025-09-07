@@ -30,7 +30,7 @@ const MiniNav = () => {
     }
 
     return (
-        <div className='py-2 w-full border-2 px-7 mt-2 bg-sky-100'>
+        <div className='py-1 w-full border-2 px-7 mt-2 bg-sky-100'>
             <ul className='flex items-center justify-between gap-2'>
                 {categories.map((cat, index) => (
                     <StarBorder

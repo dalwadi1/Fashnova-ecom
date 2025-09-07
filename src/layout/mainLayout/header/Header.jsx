@@ -79,14 +79,14 @@ const Header = () => {
     };
     return (
         <div className='sticky top-1 z-10 bg-white mb-3'>
-            <div className='sm:py-2 flex items-center sm:flex-row flex-col justify-between sm:px-10 px-2 shadow-lg rounded-sm bg-white border'>
+            <div className='flex items-center sm:flex-row flex-col justify-between sm:px-10 px-2 shadow-lg rounded-sm bg-white border'>
                 <div className='w-full flex items-center justify-between'>
                     <div className='flex items-center justify-between'>
                         <div className="md:hidden">
                             <Sheet open={open} onOpenChange={setOpen}>
                                 <SheetTrigger asChild>
                                     <button className="cursor-pointer hover:text-sky-600 hover:bg-sky-50 p-2 rounded-sm">
-                                        <Menu size={28} />
+                                        <Menu size={25} />
                                     </button>
                                 </SheetTrigger>
 
@@ -136,9 +136,9 @@ const Header = () => {
 
                         </div>
 
-                        <div className='sm:p-2 rounded-full flex items-center justify-center mb-1'>
+                        <div className='rounded-full flex items-center justify-center mb-1'>
                             <Link to={'/'} className='cursor-pointer flex items-center justify-center'>
-                                <img src={Main_Logo1} alt="main-logo" className='h-19 w-19 rounded-full bg-transparent' />
+                                <img src={Main_Logo1} alt="main-logo" className='h-10 w-10 rounded-full bg-transparent' />
                             </Link>
                         </div>
                     </div>
