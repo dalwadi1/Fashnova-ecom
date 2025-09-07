@@ -150,13 +150,13 @@ const Header = () => {
                     </div>
 
                     <div className='flex items-center justify-center gap-1'>
-                        <span className='cursor-pointer' onClick={() => navigate('/user')}>
+                        {/* <span className='cursor-pointer' onClick={() => navigate('/user')}>
                             <img
                                 src="/assets/gif/wishlist.jpg"
                                 alt="Cart Animation"
                                 className="w-9 h-9 rounded-full"
                             />
-                        </span>
+                        </span> */}
                         <span className='cursor-pointer' onClick={() => navigate('/user')}>
                             <img
                                 src="/assets/gif/user_logo.jpg"
