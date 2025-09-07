@@ -149,24 +149,17 @@ const Header = () => {
                         <Search size={25} className='absolute top-4 pl-[4px]' />
                     </div>
 
-                    <div className='flex'>
-                        <ul className='flex items-center gap-2'>
-                            <li>
-                                <Link className='cursor-pointer p-1' to='/user'>
-                                    <img
-                                        src="/assets/gif/user_logo.jpg"
-                                        alt="Cart Animation"
-                                        className="w-9 h-9 rounded-full"
-                                    />
-                                </Link>
-                            </li>
-                            {/* <li>
-                                <Link className='cursor-pointer p-1' to='/cart'><ShoppingCart size={22} /></Link>
-                            </li> */}
-                        </ul>
+                    <div className='flex items-center'>
+                        <span className='cursor-pointer' onClick={() => navigate('/user')}>
+                            <img
+                                src="/assets/gif/user_logo.jpg"
+                                alt="Cart Animation"
+                                className="w-9 h-9 rounded-full"
+                            />
+                        </span>
                         <Sheet open={openCart} onOpenChange={setOpenCart}>
                             <SheetTrigger asChild>
-                                <button className="cursor-pointer p-2 rounded-sm relative">
+                                <button className="cursor-pointer rounded-sm relative">
                                     <video
                                         src="/assets/gif/cart.mp4"
                                         autoPlay
@@ -176,7 +169,7 @@ const Header = () => {
                                         className="w-9 h-9"
                                     />
                                     {cartItems.length > 0 && isLoggedIn && (
-                                        <span className="absolute top-7 right-4 text-white bg-black font-semibold text-xs w-3 h-3 flex items-center justify-center rounded-full">
+                                        <span className="absolute top-1 right-2 text-white bg-black font-semibold text-xs w-3 h-3 flex items-center justify-center rounded-full">
                                             {cartItems.length}
                                         </span>
                                     )}
