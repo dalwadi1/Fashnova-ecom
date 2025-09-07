@@ -5,7 +5,7 @@ import { ShoppingBag, Shirt, Footprints, Star } from "lucide-react";
 
 export default function HeroSection() {
     return (
-        <section className="bg-gradient-to-r from-blue-100 to-blue-50 py-9 overflow-hidden mb-3">
+        <section className="bg-gradient-to-r from-blue-100 to-blue-50 py-12 overflow-hidden mb-3">
             <Footprints className="absolute bottom-10 right-16 text-gray-400 w-12 h-12 rotate-12 opacity-50" />
 
             <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-10">
