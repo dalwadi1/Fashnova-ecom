@@ -48,7 +48,7 @@ const ProductDetails = () => {
                 </div>
             </div>
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 px-3">
                 <h1 className="text-2xl sm:text-3xl font-bold">{state.name}</h1>
 
                 <div className="flex items-center gap-2 text-yellow-500">
