@@ -154,7 +154,7 @@ const Header = () => {
                             <img
                                 src="/assets/gif/wishlist.jpg"
                                 alt="Cart Animation"
-                                className="w-10 h-10 rounded-full"
+                                className="w-9 h-9 rounded-full"
                             />
                         </span>
                         <span className='cursor-pointer' onClick={() => navigate('/user')}>
