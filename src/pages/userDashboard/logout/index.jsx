@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router";
 import { LogOut } from "lucide-react";
+import { Main_Logo1 } from "@/lib/svgFils";
 
 const Logout = ({ open, handleClose }) => {
     const navigate = useNavigate();
@@ -24,8 +25,9 @@ const Logout = ({ open, handleClose }) => {
         <Dialog open={open} onOpenChange={handleClose}>
             <DialogContent className="flex items-center flex-col justify-center min-h-[30vh]">
                 <DialogHeader className="flex items-center justify-center">
-                    <div className="bg-sky-50 p-3 shadow-sm rounded-full">
-                        <LogOut size={40} />
+                    <div className="bg-sky-50 shadow-sm rounded-full">
+                        <img src="/assets/gif/logout.gif" alt="main-logo" className='h-18 w-19 rounded-full bg-transparent' />
+                        {/* <LogOut size={40} /> */}
                     </div>
                     <DialogTitle className="text-center">Are you sure you want to logout?</DialogTitle>
                     <DialogDescription className='text-center'>

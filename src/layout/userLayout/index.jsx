@@ -137,8 +137,8 @@ const UserLayout = () => {
                                         >
 
                                             <div className="flex items-center justify-between mb-4 border-b pb-2">
-                                                <h2 className="text-lg font-bold">Shiv Kids Fashion</h2>
-                                                <button onClick={() => setOpen(false)} className="text-gray-600 hover:text-pink-600">
+                                                <h2 className="text-lg font-bold text-sky-600">Shiv Kids Fashion</h2>
+                                                <button onClick={() => setOpen(false)} className="text-gray-600 hover:text-sky-600">
                                                     ✕
                                                 </button>
                                             </div>
@@ -149,7 +149,7 @@ const UserLayout = () => {
                                                         key={category?.id}
                                                         onClick={() => handleNavigate(category?.path, category?.label)}
                                                         className={`cursor-pointer flex flex-col items-center text-center p-2 rounded-md border hover:shadow-md transition ${activeCategory === category?.name
-                                                            ? "border-pink-500 text-pink-600 font-semibold"
+                                                            ? "border-sky-500 text-sky-600 font-semibold"
                                                             : "border-gray-200"
                                                             }`}
                                                     >
@@ -192,15 +192,16 @@ const UserLayout = () => {
                             </>
                         ) : (
                             <div className="w-full">
-                                <div className="sm:hidden mb-2 flex items-center justify-between bg-sky-100 sm:p-4 py-4 sticky z-50 top-2 px-1 rounded-sm w-full">
+                                <div className="sm:hidden px-2 mb-2 flex items-center justify-between bg-sky-100 sm:p-4 py-4 sticky z-50 top-2 rounded-sm w-full">
                                     <div className="flex" onClick={() => navigate("/")}>
-                                        <p className="text-xs flex items-center">
-                                            <ChevronLeft size={18} /> Continue Shopping...
-                                        </p>
+                                        <img
+                                            src="/assets/gif/back.jpg"
+                                            className="h-5 w-9 bg-transparent rounded-sm"
+                                        />
                                     </div>
                                     <Sheet open={open} onOpenChange={setOpen}>
                                         <SheetTrigger asChild>
-                                            <button className="cursor-pointer hover:text-pink-600 hover:bg-pink-50 p-2 rounded-sm">
+                                            <button className="cursor-pointer hover:text-sky-600 hover:bg-sky-50 p-2 rounded-sm">
                                                 <Menu size={18} />
                                             </button>
                                         </SheetTrigger>
@@ -213,7 +214,7 @@ const UserLayout = () => {
 
                                             <div className="flex items-center justify-between mb-4 border-b pb-2">
                                                 <h2 className="text-lg font-bold">Shiv Kids Fashion</h2>
-                                                <button onClick={() => setOpen(false)} className="text-gray-600 hover:text-pink-600">
+                                                <button onClick={() => setOpen(false)} className="text-gray-600 hover:text-sky-600">
                                                     ✕
                                                 </button>
                                             </div>
@@ -224,7 +225,7 @@ const UserLayout = () => {
                                                         key={category?.id}
                                                         onClick={() => handleNavigate(category?.path, category?.label)}
                                                         className={`cursor-pointer flex flex-col items-center text-center p-2 rounded-md border hover:shadow-md transition ${activeCategory === category?.name
-                                                            ? "border-pink-500 text-pink-600 font-semibold"
+                                                            ? "border-sky-500 text-pink-600 font-semibold"
                                                             : "border-gray-200"
                                                             }`}
                                                     >
@@ -232,6 +233,9 @@ const UserLayout = () => {
                                                         <span className="text-xs sm:text-sm">{category?.label}</span>
                                                     </li>
                                                 ))}
+                                                <div className="flex flex-col text-xs sm:text-sm items-center text-center p-2 rounded-md border hover:shadow-md transition" onClick={handleLogout}>
+                                                    <LogOut /> Logout
+                                                </div>
                                             </ul>
                                         </SheetContent>
                                     </Sheet>
