@@ -6,7 +6,7 @@ import UnAuthCart from '@/errorPage/UnAuthCart';
 const CartGuard = () => {
     const user = JSON.parse(localStorage.getItem('user')) || null;
 
-    if (true) {
+    if (!user) {
         return <UnAuthCart />
     }
 

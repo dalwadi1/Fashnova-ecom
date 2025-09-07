@@ -25,6 +25,7 @@ const categories = [
 
 const Header = () => {
     const [open, setOpen] = useState(false);
+    const [openCart, setOpenCart] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -33,6 +34,37 @@ const Header = () => {
     const handleNavigate = (category) => {
         navigate("/shop", { state: category });
         setOpen(false);
+    };
+
+    const [cartItems, setCartItems] = useState([
+        {
+            id: 1,
+            name: "Boys Blue T-Shirt",
+            price: 499,
+            qty: 2,
+            image:
+                "https://rukminim2.flixcart.com/image/612/612/xif0q/kids-t-shirt/j/q/f/5-6-years-boy-tshirt-02-style-duplication-original-imahf3c4gq8znrcr.jpeg?q=70",
+        },
+        {
+            id: 2,
+            name: "Kids Jeans",
+            price: 899,
+            qty: 1,
+            image:
+                "https://rukminim2.flixcart.com/image/612/612/xif0q/kids-jean/a/9/f/3-4-years-kids-jeans-original-imahfcxscw7xzqsh.jpeg?q=70",
+        },
+        {
+            id: 3,
+            name: "Sneakers for Boys",
+            price: 1199,
+            qty: 1,
+            image:
+                "https://rukminim2.flixcart.com/image/612/612/xif0q/kids-shoe/p/n/k/2-boys-sneakers-duplication-original-imahf3c4jkhcy7zm.jpeg?q=70",
+        },
+    ]);
+
+    const handleRemoveItem = (id) => {
+        setCartItems((prev) => prev.filter((item) => item.id !== id));
     };
     return (
         <div className='sticky top-1 z-10 bg-white'>
@@ -109,12 +141,113 @@ const Header = () => {
                     <div className='flex'>
                         <ul className='flex items-center gap-4'>
                             <li>
-                                <Link className='cursor-pointer p-1' to='/user'><UserRound size={22} /></Link>
+                                <Link className='cursor-pointer p-1' to='/user'>
+                                    <img
+                                        src="/assets/gif/user_logo.jpg"
+                                        alt="Cart Animation"
+                                        className="w-9 h-9 rounded-full"
+                                    />
+                                </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link className='cursor-pointer p-1' to='/cart'><ShoppingCart size={22} /></Link>
-                            </li>
+                            </li> */}
                         </ul>
+                        <Sheet open={openCart} onOpenChange={setOpenCart}>
+                            <SheetTrigger asChild>
+                                <button className="cursor-pointer p-2 rounded-sm relative">
+                                    <video
+                                        src="/assets/gif/cart.mp4"
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-9 h-9"
+                                    />
+                                    {cartItems.length > 0 && (
+                                        <span className="absolute top-7 right-4 text-white bg-black font-semibold text-xs w-3 h-3 flex items-center justify-center rounded-full">
+                                            {cartItems.length}
+                                        </span>
+                                    )}
+                                </button>
+                            </SheetTrigger>
+
+                            <SheetContent
+                                side="right"
+                                className="w-full sm:w-[400px] h-full bg-white px-4 py-3 flex flex-col"
+                                hideCloseButton
+                            >
+                                <div className="flex items-center justify-between mb-4 border-b pb-2">
+                                    <h2 className="text-lg font-bold">Shiv Kids Fashion</h2>
+                                    <button
+                                        onClick={() => setOpenCart(false)}
+                                        className="text-gray-600 hover:text-pink-600"
+                                    >
+                                        ✕
+                                    </button>
+                                </div>
+
+                                <div className="flex-1 overflow-y-auto space-y-4">
+                                    {cartItems.length > 0 ? (
+                                        cartItems.map((item, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex items-center justify-between border-b pb-3"
+                                            >
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.name}
+                                                    className="w-16 h-16 rounded-md object-cover"
+                                                />
+
+                                                <div className="flex-1 px-3">
+                                                    <h3 className="text-sm font-semibold">{item.name}</h3>
+                                                    <p className="text-xs text-gray-500">
+                                                        Qty: {item.qty} × ₹{item.price}
+                                                    </p>
+                                                    <p className="text-sm font-bold text-pink-600">
+                                                        ₹{item.qty * item.price}
+                                                    </p>
+                                                </div>
+
+                                                <button
+                                                    onClick={() => handleRemoveItem(item.id)}
+                                                    className="text-gray-400 hover:text-red-500"
+                                                >
+                                                    ✕
+                                                </button>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <p className="text-center text-gray-500">Your cart is empty</p>
+                                    )}
+                                </div>
+
+                                {cartItems.length > 0 && (
+                                    <div className="border-t pt-4 space-y-3">
+                                        <div className="flex justify-between font-semibold text-gray-800">
+                                            <span>Subtotal:</span>
+                                            <span>₹{cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)}</span>
+                                        </div>
+
+                                        <div className="flex gap-3">
+                                            <button
+                                                onClick={() => navigate('/cart')}
+                                                className="w-1/2 border border-pink-600 text-pink-600 rounded-lg py-2 hover:bg-pink-50"
+                                            >
+                                                My Cart
+                                            </button>
+                                            <button
+                                                onClick={() => navigate('/checkout')}
+                                                className="w-1/2 bg-pink-600 text-white rounded-lg py-2 hover:bg-pink-700"
+                                            >
+                                                Checkout
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </SheetContent>
+                        </Sheet>
                     </div>
                 </div>
 
