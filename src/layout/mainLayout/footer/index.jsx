@@ -10,15 +10,15 @@ const Footer = () => {
                 <Link to={'/'} className='cursor-pointer'>
                     <img src={Main_Logo1} alt="main-logo" className='min-w-[4vw] h-[8vh] rounded-full ' />
                 </Link>
-                <p className='sm:text-sm text-xs'>127, Ameethara society, Nana Varachha, Surat-395006</p>
-                <h5 className='sm:text-sm text-xs'>+91 8141971499</h5>
-                <p className='sm:text-sm text-xs'>help@shoppers.com</p>
-                <div className='flex gap-1'>
-                    <Facebook size={18} />
-                    <Twitter size={18} />
-                    <Youtube size={18} />
-                    <Instagram size={18} />
-                    <Linkedin size={18} />
+                <p className='sm:text-sm text-xs text-gray-500'>127, Ameethara society, Nana Varachha, Surat-395006</p>
+                <h5 className='sm:text-sm text-xs text-gray-500'>+91 8141971499</h5>
+                <p className='sm:text-sm text-xs text-gray-500'>help@shoppers.com</p>
+                <div className='flex gap-2 items-center'>
+                    <Facebook size={18} color='gray' />
+                    <Twitter size={18} color='gray' />
+                    <Youtube size={18} color='gray' />
+                    <Instagram size={18} color='gray' />
+                    <Linkedin size={18} color='gray' />
                 </div>
             </div>
             <div className='flex flex-col gap-2 items-start'>
@@ -27,16 +27,16 @@ const Footer = () => {
                 </div>
                 <ul className='flex flex-col sm:gap-3 gap-1'>
                     <li className=''>
-                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs'>FAQ</Link>
+                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs text-gray-500'>FAQ</Link>
                     </li>
                     <li className=''>
-                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs'>Contact Us</Link>
+                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs text-gray-500'>Contact Us</Link>
                     </li>
                     <li>
-                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs'>Return Policy</Link>
+                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs text-gray-500'>Return Policy</Link>
                     </li>
                     <li>
-                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs'>Terms & Conditions</Link>
+                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs text-gray-500'>Terms & Conditions</Link>
                     </li>
                 </ul>
             </div>
@@ -46,13 +46,13 @@ const Footer = () => {
                 </div>
                 <ul className='flex flex-col gap-2'>
                     <li>
-                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs'>Men's Shopping</Link>
+                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs text-gray-500'>Men's Shopping</Link>
                     </li>
                     <li>
-                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs'>Women's Shoppings</Link>
+                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs text-gray-500'>Women's Shoppings</Link>
                     </li>
                     <li>
-                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs'>kids's Shoppings</Link>
+                        <Link to={'/'} className='cursor-pointer hover:underline hover:text-sky-950 sm:text-sm text-xs text-gray-500'>kids's Shoppings</Link>
                     </li>
                 </ul>
             </div>

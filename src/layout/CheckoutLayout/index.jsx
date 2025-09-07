@@ -19,9 +19,9 @@ const CheckoutLayout = () => {
             <div className='sticky top-1 z-10 bg-white mb-4'>
                 <div className='flex items-center justify-between sm:px-10 px-2 shadow-lg rounded-sm bg-white border'>
                     <div className='hidden sm:flex items-center justify-between'>
-                        <div className='sm:p-2 rounded-full flex items-center justify-center mb-1'>
+                        <div className='rounded-full flex items-center justify-center mb-1'>
                             <Link to={'/'} className='cursor-pointer flex items-center justify-center'>
-                                <img src={Main_Logo1} alt="main-logo" className='h-19 w-19 rounded-full bg-transparent' />
+                                <img src={Main_Logo1} alt="main-logo" className='h-10 w-10 rounded-full bg-transparent' />
                             </Link>
                         </div>
                     </div>

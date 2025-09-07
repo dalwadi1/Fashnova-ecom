@@ -10,7 +10,7 @@ const Payments = () => {
     };
 
     return (
-        <div className="p-2 bg-gray-50 min-h-screen rounded-lg">
+        <div className="p-2 bg-gray-50 rounded-lg">
             <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white p-6 rounded-lg shadow">
                     <h3 className="font-semibold mb-4 sm:text-lg text-xs">Select Payment Method</h3>

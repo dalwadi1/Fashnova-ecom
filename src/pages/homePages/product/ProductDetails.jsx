@@ -17,6 +17,9 @@ const ProductDetails = () => {
             "https://via.placeholder.com/202",
             "https://via.placeholder.com/202",
             "https://via.placeholder.com/202",
+            "https://via.placeholder.com/202",
+            "https://via.placeholder.com/202",
+            "https://via.placeholder.com/202",
         ],
         price: 4999,
         oldPrice: 6999,
@@ -36,7 +39,7 @@ const ProductDetails = () => {
                     />
                 </div>
 
-                <div className="flex w-[35vw] gap-2 overflow-x-auto">
+                <div className="flex sm:w-[30vw] w-[65vw] gap-2 overflow-x-auto">
                     {product.gallery?.map((img, i) => (
                         <img
                             key={i}
