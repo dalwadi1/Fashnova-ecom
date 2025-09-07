@@ -149,7 +149,14 @@ const Header = () => {
                         <Search size={25} className='absolute top-4 pl-[4px]' />
                     </div>
 
-                    <div className='flex items-center'>
+                    <div className='flex items-center justify-center gap-1'>
+                        <span className='cursor-pointer' onClick={() => navigate('/user')}>
+                            <img
+                                src="/assets/gif/wishlist.jpg"
+                                alt="Cart Animation"
+                                className="w-10 h-10 rounded-full"
+                            />
+                        </span>
                         <span className='cursor-pointer' onClick={() => navigate('/user')}>
                             <img
                                 src="/assets/gif/user_logo.jpg"

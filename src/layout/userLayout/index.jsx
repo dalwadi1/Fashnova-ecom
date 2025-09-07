@@ -116,7 +116,7 @@ const UserLayout = () => {
                     <div className="bg-white p-2 w-full">
                         {location.pathname === "/user" ? (
                             <>
-                                <div className="sm:hidden mb-2 flex items-center justify-between shadow-lg sm:p-4 py-4 sticky z-50 top-2 px-2 rounded-sm w-full">
+                                <div className="sm:hidden mb-2 flex items-center justify-between bg-white shadow-lg sm:p-4 py-4 sticky z-50 top-2 px-2 rounded-sm w-full">
                                     <div className="flex" onClick={() => navigate("/")}>
                                         <img
                                             src="/assets/gif/back.jpg"
@@ -192,7 +192,7 @@ const UserLayout = () => {
                             </>
                         ) : (
                             <div className="w-full">
-                                <div className="sm:hidden px-2 mb-2 flex items-center justify-between bg-sky-100 sm:p-4 py-4 sticky z-50 top-2 rounded-sm w-full">
+                                <div className="sm:hidden px-2 mb-2 flex items-center justify-between shadow-lg bg-white sm:p-4 py-4 sticky z-50 top-2 rounded-sm w-full">
                                     <div className="flex" onClick={() => navigate("/")}>
                                         <img
                                             src="/assets/gif/back.jpg"

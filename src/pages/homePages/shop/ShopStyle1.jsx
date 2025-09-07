@@ -1,9 +1,10 @@
 import React from "react";
 import { Heart, ShoppingCart } from "lucide-react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { productsDB } from "@/database/productsDB";
 
 const ShopStyle1 = () => {
+    const navigate = useNavigate()
     const { state } = useLocation();
     const category = state?.toLowerCase();
     const products = productsDB[category] || [];
@@ -15,11 +16,11 @@ const ShopStyle1 = () => {
                     key={product.id}
                     className="relative flex flex-col px-2 py-1 border-b sm:border-0 group"
                 >
-                    <div className="rounded-sm flex items-center justify-center relative bg-sky-50 w-full !max-h-[290px]">
+                    <div className="rounded-sm flex items-center p-1 justify-center relative bg-sky-50 w-full" onClick={() => navigate('/product-details', { state: product })}>
                         <img
                             src={product.image}
                             alt={product.category}
-                            className="w-full h-full object-cover rounded-lg p-1"
+                            className="w-full lg:h-65 h-45 rounded-sm object-cover"
                         />
 
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between">
@@ -27,7 +28,16 @@ const ShopStyle1 = () => {
                                 <button className="p-2 bg-white rounded-full shadow hover:scale-110 transition">
                                     <Heart size={20} />
                                 </button>
-                                <button className="p-2 bg-white rounded-full shadow hover:scale-110 transition">
+                                <button className="p-2 relative cursor-pointer bg-white rounded-full shadow hover:scale-110 transition">
+                                    {/* <video
+                                        src="/assets/gif/cart.mp4"
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-7 h-7"
+                                    />
+                                    <img src='/assets/gif/plus.jpg' alt="" className="absolute top-4 left-5 w-2 h-2" /> */}
                                     <ShoppingCart size={20} />
                                 </button>
                             </div>

@@ -12,17 +12,12 @@ const Shop = () => {
     const [showFilter, setShowFilter] = useState(false)
     return (
         <>
-            <div className='py-5'>
-                <div className='relative flex items-center justify-center mb-2'>
-                    <img
-                        src={shop_banner}
-                        alt="Winter Collection"
-                        className="max-h-[50vh] w-full"
-                    />
-                    <div className='flex flex-col gap-5 items-center justify-center p-3 absolute'>
-                        <h4 className='sm:text-2xl text-sm sm:font-bold'>{state}</h4>
+            <div className="bg-gradient-to-r rounded-sm from-blue-100 to-blue-50 py-9 overflow-hidden mb-3">
+                <div className='relative flex items-center justify-center py-8'>
+                    <div className='flex flex-col gap-2 items-center justify-center absolute'>
+                        <h4 className='sm:text-2xl text-sm sm:font-bold text-gray-600'>{state}</h4>
                         <div className=''>
-                            <ul className='flex items-center gap-1 p-3'>
+                            <ul className='flex items-center gap-1'>
                                 <li className='sm:text-sm text-xs'><Link to={'/'} className='cursor-pointer'>Home</Link></li>
                                 <span>/</span>
                                 <li className='sm:text-sm text-xs cursor-pointer'>Shop</li>
@@ -32,25 +27,25 @@ const Shop = () => {
                         </div>
                     </div>
                 </div>
-                <div className='sm:hidden flex items-center justify-between gap-5 sm:py-5'>
-                    <div
-                        onClick={() => setShowFilter(!showFilter)}
-                        className='flex gap-2 cursor-pointer sm:text-sm text-xs'>
-                        <span><SlidersHorizontal size={18} /></span>filters
-                    </div>
-                    <div className='bg-sky-50 rounded-sm' >
-                        <DropdownMenu className="focus:border-none">
-                            <DropdownMenuTrigger className="flex items-center gap-2 justify-between cursor-pointer sm:text-sm text-xs">Short by trending <ChevronDown /></DropdownMenuTrigger>
-                            <DropdownMenuContent>
-                                <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                                <DropdownMenuSeparator />
-                                <DropdownMenuItem>Profile</DropdownMenuItem>
-                                <DropdownMenuItem>Billing</DropdownMenuItem>
-                                <DropdownMenuItem>Team</DropdownMenuItem>
-                                <DropdownMenuItem>Subscription</DropdownMenuItem>
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                    </div>
+            </div>
+            <div className='sm:hidden flex items-center justify-between px-2 gap-5 sm:py-5'>
+                <div
+                    onClick={() => setShowFilter(!showFilter)}
+                    className='flex gap-2 cursor-pointer sm:text-sm text-xs'>
+                    <span><SlidersHorizontal size={18} /></span>filters
+                </div>
+                <div className='bg-sky-50 rounded-sm' >
+                    <DropdownMenu className="focus:border-none">
+                        <DropdownMenuTrigger className="flex items-center gap-2 justify-between cursor-pointer sm:text-sm text-xs">Short by trending <ChevronDown /></DropdownMenuTrigger>
+                        <DropdownMenuContent>
+                            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuItem>Profile</DropdownMenuItem>
+                            <DropdownMenuItem>Billing</DropdownMenuItem>
+                            <DropdownMenuItem>Team</DropdownMenuItem>
+                            <DropdownMenuItem>Subscription</DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                 </div>
             </div>
             {
@@ -93,7 +88,7 @@ const Shop = () => {
                 <ShopStyle1 />
             </div>
             <div className="hidden sm:grid grid-cols-12 gap-4">
-                <div className="col-span-3 bg-sky-50 p-4 rounded-lg">
+                <div className="col-span-3 bg-white p-4 rounded-lg">
                     <h2 className="font-semibold mb-3">Products Type</h2>
 
                     <div className="mb-4">

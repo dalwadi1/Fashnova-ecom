@@ -17,9 +17,9 @@ const MiniNav = () => {
         "Jeans",
         "Shirts",
         "tshirts",
-        "nightwears",
+        "Nightwears",
         "Pents",
-        "cargos",
+        "Cargos",
         "Trousers",
         "Formal Pents"
     ]
@@ -42,8 +42,8 @@ const MiniNav = () => {
                         onClick={() => handleClick(cat)}
                     >
                         <li
-                            className={`rounded-lg px-5 flex items-center justify-center py-2 cursor-pointer text-xs 
-              ${active === cat ? 'bg-black text-white' : 'bg-sky-50 text-black'}`}
+                            className={`rounded-lg px-3 flex items-center justify-center py-2 cursor-pointer text-xs 
+              ${active === cat ? 'bg-black text-white' : 'bg-sky-50 text-gray-500'}`}
                         >
                             {cat}
                         </li>
