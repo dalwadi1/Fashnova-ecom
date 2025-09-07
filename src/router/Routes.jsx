@@ -130,11 +130,17 @@ export const router = createBrowserRouter(
         },
         {
             path: 'cart',
-            element: <CheckoutLayout />,
+            element: <CartGuard />,
             children: [
                 {
-                    index: true,
-                    element: <Cart />
+                    path: '/cart',
+                    element: <CheckoutLayout />,
+                    children: [
+                        {
+                            index: true,
+                            element: <Cart />
+                        }
+                    ]
                 }
             ]
         },

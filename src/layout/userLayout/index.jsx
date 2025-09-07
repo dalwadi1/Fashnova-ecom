@@ -8,6 +8,7 @@ import {
     Heart,
     LogOut,
     Menu,
+    MoveLeft,
     NotebookTabs,
     ShieldAlert,
     ShoppingBag,
@@ -118,7 +119,7 @@ const UserLayout = () => {
                                 <div className="sm:hidden mb-2 flex items-center justify-between bg-sky-100 sm:p-4 py-4 sticky z-50 top-2 px-1 rounded-sm w-full">
                                     <div className="flex" onClick={() => navigate("/")}>
                                         <p className="text-xs flex items-center">
-                                            <ChevronLeft size={18} /> Continue Shopping...
+                                            <MoveLeft size={18} />
                                         </p>
                                     </div>
                                     <Sheet open={open} onOpenChange={setOpen}>

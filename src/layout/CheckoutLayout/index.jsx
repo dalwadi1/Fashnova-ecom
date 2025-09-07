@@ -15,11 +15,6 @@ const CheckoutLayout = () => {
 
     const current = stepMap[location.pathname];
     return (
-
-        // <h2 className="text-xl font-bold text-gray-800 border-b pb-2">
-        //                 🏠 Delivery Address
-        //             </h2>
-        // <h2 className="text-2xl font-bold mb-6">💳 Payment</h2>
         <div className='w-full min-h-screen bg-gradient-to-br from-white via-sky-100 to-sky-200'>
             <div className='sticky top-1 z-10 bg-white mb-4'>
                 <div className='flex items-center justify-between sm:px-10 px-2 shadow-lg rounded-sm bg-white border'>

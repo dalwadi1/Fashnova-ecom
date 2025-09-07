@@ -1,6 +1,6 @@
 import { Main_Logo1 } from '@/lib/svgFils'
-import { Menu, Search, } from 'lucide-react'
-import React, { useState } from 'react'
+import { Menu, Search, ShoppingCart, } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 import {
     Sheet,
@@ -28,12 +28,23 @@ const Header = () => {
     const [openCart, setOpenCart] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        setIsLoggedIn(!!token);
+    }, []);
 
     const activeCategory = location.state || "";
 
     const handleNavigate = (category) => {
         navigate("/shop", { state: category });
         setOpen(false);
+    };
+
+    const handleShopping = () => {
+        navigate("/")
+        setOpenCart(false);
     };
 
     const [cartItems, setCartItems] = useState([
@@ -164,7 +175,7 @@ const Header = () => {
                                         playsInline
                                         className="w-9 h-9"
                                     />
-                                    {cartItems.length > 0 && (
+                                    {cartItems.length > 0 && isLoggedIn && (
                                         <span className="absolute top-7 right-4 text-white bg-black font-semibold text-xs w-3 h-3 flex items-center justify-center rounded-full">
                                             {cartItems.length}
                                         </span>
@@ -188,7 +199,26 @@ const Header = () => {
                                 </div>
 
                                 <div className="flex-1 overflow-y-auto space-y-4">
-                                    {cartItems.length > 0 ? (
+                                    {!isLoggedIn ? (
+                                        <div className="flex flex-col items-center justify-center min-h-[60vh] text-center space-y-4">
+                                            <ShoppingCart className="h-16 w-16 text-gray-400" />
+                                            <p className="text-lg font-medium">Missing Cart items?</p>
+                                            <p className="text-sm text-gray-500">
+                                                Login to see the items you added previously
+                                            </p>
+                                            <div className="flex flex-col gap-3 mt-4 w-full px-6">
+                                                <Link
+                                                    to="/login"
+                                                    className="px-2 py-3 rounded-sm text-white bg-blue-700"
+                                                >
+                                                    Login
+                                                </Link>
+                                                <span className="px-6 text-blue-700 sm:hidden flex items-center justify-center" onClick={handleShopping}>
+                                                    Continue Shopping
+                                                </span>
+                                            </div>
+                                        </div>
+                                    ) : cartItems.length > 0 ? (
                                         cartItems.map((item, index) => (
                                             <div
                                                 key={index}
@@ -223,22 +253,28 @@ const Header = () => {
                                     )}
                                 </div>
 
-                                {cartItems.length > 0 && (
+                                {isLoggedIn && cartItems.length > 0 && (
                                     <div className="border-t pt-4 space-y-3">
                                         <div className="flex justify-between font-semibold text-gray-800">
-                                            <span className='sm:text-sm text-xs'>Subtotal:</span>
-                                            <span className='sm:text-sm text-xs'>₹{cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)}</span>
+                                            <span className="sm:text-sm text-xs">Subtotal:</span>
+                                            <span className="sm:text-sm text-xs">
+                                                ₹
+                                                {cartItems.reduce(
+                                                    (acc, item) => acc + item.qty * item.price,
+                                                    0
+                                                )}
+                                            </span>
                                         </div>
 
                                         <div className="flex gap-3">
                                             <button
-                                                onClick={() => navigate('/cart')}
-                                                className="w-1/2 border  border-sky-600 text-sky-600 rounded-lg py-2 hover:bg-sky-50"
+                                                onClick={() => navigate("/cart")}
+                                                className="w-1/2 border border-sky-600 text-sky-600 rounded-lg py-2 hover:bg-sky-50"
                                             >
                                                 My Cart
                                             </button>
                                             <button
-                                                onClick={() => navigate('/checkout')}
+                                                onClick={() => navigate("/check-address")}
                                                 className="w-1/2 bg-sky-50 text-sky-600 rounded-lg py-2 hover:bg-sky-100"
                                             >
                                                 Checkout
