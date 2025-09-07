@@ -116,10 +116,13 @@ const UserLayout = () => {
                     <div className="bg-white p-2 w-full">
                         {location.pathname === "/user" ? (
                             <>
-                                <div className="sm:hidden mb-2 flex items-center justify-between bg-sky-100 sm:p-4 py-4 sticky z-50 top-2 px-1 rounded-sm w-full">
+                                <div className="sm:hidden mb-2 flex items-center justify-between shadow-lg sm:p-4 py-4 sticky z-50 top-2 px-1 rounded-sm w-full">
                                     <div className="flex" onClick={() => navigate("/")}>
                                         <p className="text-xs flex items-center">
-                                            <MoveLeft size={18} />
+                                            <img
+                                                src="/assets/gif/back.jpg"
+                                                className="h-4 w-8 bg-transparent rounded-sm"
+                                            />
                                         </p>
                                     </div>
                                     <Sheet open={open} onOpenChange={setOpen}>
