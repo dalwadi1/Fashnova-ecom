@@ -1,5 +1,5 @@
-import { Main_Logo, Main_Logo1 } from '@/lib/svgFils'
-import { Menu, Search, ShoppingCart, UserRound } from 'lucide-react'
+import { Main_Logo1 } from '@/lib/svgFils'
+import { Menu, Search, } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 import {
@@ -43,7 +43,7 @@ const Header = () => {
             price: 499,
             qty: 2,
             image:
-                "https://rukminim2.flixcart.com/image/612/612/xif0q/kids-t-shirt/j/q/f/5-6-years-boy-tshirt-02-style-duplication-original-imahf3c4gq8znrcr.jpeg?q=70",
+                "/assets/images/products/imag1.jpg",
         },
         {
             id: 2,
@@ -51,7 +51,7 @@ const Header = () => {
             price: 899,
             qty: 1,
             image:
-                "https://rukminim2.flixcart.com/image/612/612/xif0q/kids-jean/a/9/f/3-4-years-kids-jeans-original-imahfcxscw7xzqsh.jpeg?q=70",
+                "/assets/images/products/img2.jpg",
         },
         {
             id: 3,
@@ -59,7 +59,7 @@ const Header = () => {
             price: 1199,
             qty: 1,
             image:
-                "https://rukminim2.flixcart.com/image/612/612/xif0q/kids-shoe/p/n/k/2-boys-sneakers-duplication-original-imahf3c4jkhcy7zm.jpeg?q=70",
+                "/assets/images/products/img3.jpg",
         },
     ]);
 
@@ -67,14 +67,14 @@ const Header = () => {
         setCartItems((prev) => prev.filter((item) => item.id !== id));
     };
     return (
-        <div className='sticky top-1 z-10 bg-white'>
+        <div className='sticky top-1 z-10 bg-white mb-3'>
             <div className='sm:py-2 flex items-center sm:flex-row flex-col justify-between sm:px-10 px-2 shadow-lg rounded-sm bg-white border'>
                 <div className='w-full flex items-center justify-between'>
                     <div className='flex items-center justify-between'>
                         <div className="md:hidden">
                             <Sheet open={open} onOpenChange={setOpen}>
                                 <SheetTrigger asChild>
-                                    <button className="cursor-pointer hover:text-pink-600 hover:bg-pink-50 p-2 rounded-sm">
+                                    <button className="cursor-pointer hover:text-sky-600 hover:bg-sky-50 p-2 rounded-sm">
                                         <Menu size={28} />
                                     </button>
                                 </SheetTrigger>
@@ -86,8 +86,8 @@ const Header = () => {
                                 >
 
                                     <div className="flex items-center justify-between mb-4 border-b pb-2">
-                                        <h2 className="text-lg font-bold">Shiv Kids Fashion</h2>
-                                        <button onClick={() => setOpen(false)} className="text-gray-600 hover:text-pink-600">
+                                        <h2 className="text-lg font-bold text-sky-600">Shiv Kids Fashion</h2>
+                                        <button onClick={() => setOpen(false)} className="text-gray-600 hover:text-sky-600">
                                             ✕
                                         </button>
                                     </div>
@@ -107,7 +107,7 @@ const Header = () => {
                                                 key={category?.id}
                                                 onClick={() => handleNavigate(category?.name)}
                                                 className={`cursor-pointer flex flex-col items-center text-center p-2 rounded-md border hover:shadow-md transition ${activeCategory === category?.name
-                                                    ? "border-pink-500 text-pink-600 font-semibold"
+                                                    ? "border-sky-500 text-sky-600 font-semibold"
                                                     : "border-gray-200"
                                                     }`}
                                             >
@@ -139,7 +139,7 @@ const Header = () => {
                     </div>
 
                     <div className='flex'>
-                        <ul className='flex items-center gap-4'>
+                        <ul className='flex items-center gap-2'>
                             <li>
                                 <Link className='cursor-pointer p-1' to='/user'>
                                     <img
@@ -178,7 +178,7 @@ const Header = () => {
                                 hideCloseButton
                             >
                                 <div className="flex items-center justify-between mb-4 border-b pb-2">
-                                    <h2 className="text-lg font-bold">Shiv Kids Fashion</h2>
+                                    <h2 className="text-lg font-bold text-sky-600">Shiv Kids Fashion</h2>
                                     <button
                                         onClick={() => setOpenCart(false)}
                                         className="text-gray-600 hover:text-pink-600"
@@ -205,7 +205,7 @@ const Header = () => {
                                                     <p className="text-xs text-gray-500">
                                                         Qty: {item.qty} × ₹{item.price}
                                                     </p>
-                                                    <p className="text-sm font-bold text-pink-600">
+                                                    <p className="text-sm font-bold text-sky-600">
                                                         ₹{item.qty * item.price}
                                                     </p>
                                                 </div>
@@ -226,20 +226,20 @@ const Header = () => {
                                 {cartItems.length > 0 && (
                                     <div className="border-t pt-4 space-y-3">
                                         <div className="flex justify-between font-semibold text-gray-800">
-                                            <span>Subtotal:</span>
-                                            <span>₹{cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)}</span>
+                                            <span className='sm:text-sm text-xs'>Subtotal:</span>
+                                            <span className='sm:text-sm text-xs'>₹{cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)}</span>
                                         </div>
 
                                         <div className="flex gap-3">
                                             <button
                                                 onClick={() => navigate('/cart')}
-                                                className="w-1/2 border border-pink-600 text-pink-600 rounded-lg py-2 hover:bg-pink-50"
+                                                className="w-1/2 border  border-sky-600 text-sky-600 rounded-lg py-2 hover:bg-sky-50"
                                             >
                                                 My Cart
                                             </button>
                                             <button
                                                 onClick={() => navigate('/checkout')}
-                                                className="w-1/2 bg-pink-600 text-white rounded-lg py-2 hover:bg-pink-700"
+                                                className="w-1/2 bg-sky-50 text-sky-600 rounded-lg py-2 hover:bg-sky-100"
                                             >
                                                 Checkout
                                             </button>

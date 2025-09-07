@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Trash2, Plus, Minus, ShoppingBag } from "lucide-react";
+import { useNavigate } from "react-router";
 
 const cartItemsData = [
     {
@@ -26,6 +27,7 @@ const cartItemsData = [
 ];
 
 const Cart = () => {
+    const navigate = useNavigate()
     const [cartItems, setCartItems] = useState(cartItemsData);
 
     const increaseQty = (id) => {
@@ -56,17 +58,14 @@ const Cart = () => {
     );
 
     return (
-        <div className="bg-gray-50 p-2 min-h-screen">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                <ShoppingBag className="text-sky-600" /> My Cart
-            </h2>
+        <div className="bg-gray-50 p-2">
             {cartItems.length > 0 ? (
                 <div className="grid lg:grid-cols-3 gap-2">
                     <div className="lg:col-span-2 bg-white rounded-xl shadow p-2">
                         {cartItems.map((item) => (
                             <div
                                 key={item.id}
-                                className="flex items-center justify-between gap-4 border-b py-4"
+                                className="flex items-center justify-between gap-4 border-b py-2"
                             >
                                 <div className="flex items-center  justify-between w-full gap-4">
                                     <div className="flex gap-3">
@@ -123,7 +122,7 @@ const Cart = () => {
                             <span className="sm:text-sm text-xs">₹{totalPrice}</span>
                         </div>
 
-                        <button className="w-full sm:text-sm text-xs mt-4 bg-sky-600 text-white py-3 rounded-lg hover:bg-sky-700 transition">
+                        <button className="w-full sm:text-sm text-xs mt-4 bg-sky-600 text-white py-3 rounded-lg hover:bg-sky-700 transition" onClick={() => navigate('/check-address')}>
                             Proceed to Checkout
                         </button>
                     </div>

@@ -28,6 +28,8 @@ import Paymets from "@/pages/userDashboard/payment";
 import OrderReturn from "@/pages/userDashboard/orderReturn";
 import Notification from "@/pages/userDashboard/notification";
 import Security from "@/pages/userDashboard/security";
+import CheckoutLayout from "@/layout/CheckoutLayout";
+import CheckAddress from "@/pages/userDashboard/address/CheckAddress";
 
 
 export const router = createBrowserRouter(
@@ -93,16 +95,8 @@ export const router = createBrowserRouter(
                             element: <Wishlist />
                         },
                         {
-                            path: 'cart',
-                            element: <Cart />
-                        },
-                        {
                             path: 'addresses',
                             element: <Address />
-                        },
-                        {
-                            path: 'payments',
-                            element: <Paymets />
                         },
                         {
                             path: 'returns',
@@ -135,25 +129,35 @@ export const router = createBrowserRouter(
             ]
         },
         {
-            path: '/cart',
-            element: <CartGuard />,
+            path: 'cart',
+            element: <CheckoutLayout />,
             children: [
                 {
                     index: true,
                     element: <Cart />
-                },
+                }
             ]
         },
-        // {
-        //     path: '/user',
-        //     element: <ValidUserGaurd />,
-        //     children: [
-        //         {
-        //             index: true,
-        //             element: <UserPage />
-        //         },
-        //     ]
-        // },
+        {
+            path: 'check-address',
+            element: <CheckoutLayout />,
+            children: [
+                {
+                    index: true,
+                    element: <CheckAddress />
+                }
+            ]
+        },
+        {
+            path: 'payment',
+            element: <CheckoutLayout />,
+            children: [
+                {
+                    index: true,
+                    element: <Paymets />
+                }
+            ]
+        },
         {
             path: "/login",
             element: <LoginGuard />,
