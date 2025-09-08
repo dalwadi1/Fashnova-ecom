@@ -8,7 +8,7 @@ export const Registeration = createAsyncThunk(
     "user/signup",
     async (values, { rejectWithValue }) => {
         try {
-            const res = await api.post("/auth/register", values);
+            const res = await api.post("/register", values);
             if (res.data.success) {
                 toast.success(res.data.msg)
             } else {
