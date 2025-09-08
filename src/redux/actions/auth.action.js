@@ -29,14 +29,14 @@ export const userLogIn = createAsyncThunk(
     "user/signin",
     async (values, { rejectWithValue }) => {
         try {
-            const res = await api.post("/auth/login", values);
+            const res = await api.post("/login", values);
 
             if (res.data.success) {
                 toast.success(res.data.msg)
             } else {
                 toast.error(res.data.msg)
             }
-            
+
             return res.data;
         } catch (error) {
             if (error.response && error.response.data.message) {
