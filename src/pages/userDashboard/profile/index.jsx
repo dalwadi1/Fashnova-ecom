@@ -114,7 +114,7 @@ const ProfilePage = () => {
                             />
                         </label>
                     </div>
-                    <h2 className="mt-4 text-xl font-bold">{user?.name  }</h2>
+                    <h2 className="mt-4 text-xl font-bold">{user?.name}</h2>
                     <p className="text-gray-500 text-xs sm:text-sm">Front-End Developer</p>
 
                     <div className="mt-6 w-full">
@@ -203,14 +203,19 @@ const ProfilePage = () => {
                             </div>
                             {/* OTP Fields */}
                             {otpSent && !otpVerified && (
-                                <div className="mt-4">
-                                    <InputOTP maxLength={6} value={otp} onChange={setOtp}>
-                                        <InputOTPGroup>
-                                            {Array.from({ length: 6 }).map((_, i) => (
-                                                <InputOTPSlot key={i} index={i} />
-                                            ))}
-                                        </InputOTPGroup>
-                                    </InputOTP>
+                                <div className="mt-4 md:col-span-2 flex items-center justify-between">
+                                    <div>
+                                        <label className="block text-xs sm:text-sm font-medium mb-1">
+                                            OTP
+                                        </label>
+                                        <InputOTP maxLength={6} value={otp} onChange={setOtp}>
+                                            <InputOTPGroup>
+                                                {Array.from({ length: 6 }).map((_, i) => (
+                                                    <InputOTPSlot key={i} index={i} />
+                                                ))}
+                                            </InputOTPGroup>
+                                        </InputOTP>
+                                    </div>
                                     <Button
                                         type="button"
                                         className="mt-2"
