@@ -46,3 +46,16 @@ export const userLogIn = createAsyncThunk(
         }
     }
 );
+
+//get profile
+export const getProfile = createAsyncThunk(
+    "user/getprofile",
+    async () => {
+        try {
+            const res = await api.get("/auth/profile");
+            return res.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+);

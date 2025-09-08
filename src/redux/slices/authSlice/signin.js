@@ -32,7 +32,7 @@ const signin = createSlice({
 
                 if (action.payload.success) {
                     localStorage.setItem("user", JSON.stringify(action.payload.user));
-                    localStorage.setItem("token", JSON.stringify(action.payload.token));
+                    localStorage.setItem("token", action.payload.token);
                 }
             })
             .addCase(userLogIn.rejected, (state, action) => {

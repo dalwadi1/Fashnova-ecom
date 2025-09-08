@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { User, Mail, Phone, MapPin, Camera } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProfile } from "@/redux/actions/auth.action";
 
 const ProfilePage = () => {
+    const dispatch = useDispatch()
+    const { loading, user } = useSelector((state) => state.profile)
+
+    useEffect(() => {
+        dispatch(getProfile())
+    }, [])
     return (
         <div className="min-h-screen bg-gray-50 p-2 flex justify-center">
             <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-3 gap-6">
