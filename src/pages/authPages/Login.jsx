@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Main_Logo1 } from "@/lib/svgFils"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { userLogIn } from "@/redux/actions/auth.action"
 
 const loginSchema = z.object({
@@ -26,6 +26,15 @@ const loginSchema = z.object({
 const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const { loading, user } = useSelector((state) => state.sign)
+
+    useEffect(() => {
+        if (user) {
+            navigate('/')
+        }
+    }, [user])
+
     const form = useForm({
         resolver: zodResolver(loginSchema),
         defaultValues: {
@@ -36,9 +45,7 @@ const Login = () => {
 
     const onSubmit = (values) => {
         dispatch(userLogIn(values))
-        navigate("/")
     }
-
     return (
         <div className="w-full h-dvh flex items-center justify-center bg-gradient-to-br from-white via-sky-100 to-sky-200">
             <div className="grid sm:grid-cols-2 grid-cols-1 w-[90vw] max-w-5xl bg-white rounded-lg shadow-xl overflow-hidden">
@@ -107,13 +114,30 @@ const Login = () => {
                                     </FormItem>
                                 )}
                             />
-
-                            <Button
-                                type="submit"
-                                className="bg-sky-800 hover:bg-sky-800 px-18 sm:py-3 mt-2 sm:text-sm text-xs w-full"
+                            <button
+                                className={
+                                    loading
+                                        ? "bg-sky-600 cursor-not-allowed opacity-50 px-8 rounded-sm py-1 mt-2 sm:text-sm text-xs w-full flex items-center justify-center"
+                                        : "bg-sky-800 hover:bg-sky-800 text-white px-8 rounded-sm py-3 mt-2 sm:text-sm text-xs w-full flex items-center justify-center"
+                                }
+                                disabled={loading}
                             >
-                                LOG IN
-                            </Button>
+                                {loading ? <video
+                                    src="/assets/gif/loader/loading.mp4"
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    className="w-9 h-9 rounded-full"
+                                /> : 'LOG IN'}
+                            </button>
+
+                            {/* <Button
+                                type="submit"
+                                className={loading ? "bg-sky-800 hover:bg-sky-800 px-18 py-5 mt-2 sm:text-sm text-xs w-full" : "bg-sky-800 hover:bg-sky-800 px-18 py-5 mt-2 sm:text-sm text-xs w-full"}
+                            >
+
+                            </Button> */}
 
                             <p className="text-center sm:text-sm text-xs">
                                 Don&apos;t have an account?{" "}

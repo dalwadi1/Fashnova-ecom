@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -15,7 +15,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Main_Logo1 } from "@/lib/svgFils"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Registeration } from "@/redux/actions/auth.action"
 
 const registerSchema = z.object({
@@ -31,6 +31,14 @@ const registerSchema = z.object({
 const Register = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const { loading, user } = useSelector((state) => state.signup)
+
+    useEffect(() => {
+        if (user) {
+            navigate('/login')
+        }
+    }, [user])
+
     const form = useForm({
         resolver: zodResolver(registerSchema),
         defaultValues: {
@@ -43,7 +51,6 @@ const Register = () => {
 
     const onSubmit = (values) => {
         dispatch(Registeration(values))
-        navigate('/login')
     }
 
     return (
@@ -152,14 +159,23 @@ const Register = () => {
                                     </FormItem>
                                 )}
                             />
-
-                            <Button
-                                type="submit"
-                                className="bg-sky-800 hover:bg-sky-800 px-12 sm:py-3 mt-2 sm:text-sm text-xs w-full"
+                            <button
+                                className={
+                                    loading
+                                        ? "bg-sky-600 cursor-not-allowed opacity-50 px-8 rounded-sm py-1 mt-2 sm:text-sm text-xs w-full flex items-center justify-center"
+                                        : "bg-sky-800 hover:bg-sky-800 text-white px-8 rounded-sm py-3 mt-2 sm:text-sm text-xs w-full flex items-center justify-center"
+                                }
+                                disabled={loading}
                             >
-                                REGISTER
-                            </Button>
-
+                                {loading ? <video
+                                    src="/assets/gif/loader/loading.mp4"
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    className="w-9 h-9 rounded-full"
+                                /> : 'REGISTER'}
+                            </button>
                             <p className="sm:text-sm text-xs">
                                 Already have an account?{" "}
                                 <Link className="text-sky-950" to="/login">
