@@ -11,14 +11,16 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router";
 import { LogOut } from "lucide-react";
 import { Main_Logo1 } from "@/lib/svgFils";
+import { logout } from "@/redux/slices/authSlice/signin";
+import { useDispatch } from "react-redux";
 
 const Logout = ({ open, handleClose }) => {
+    const dispatch = useDispatch()
     const navigate = useNavigate();
 
     const handleConfirm = () => {
-        localStorage.clear();
-        handleClose()
-        navigate("/");
+        dispatch(logout());
+        navigate('/')
     };
 
     return (

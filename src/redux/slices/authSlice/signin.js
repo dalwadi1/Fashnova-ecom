@@ -8,6 +8,16 @@ const signin = createSlice({
         user: null,
         success: false
     },
+    reducers: {
+        logout: (state) => {
+            state.loading = false;
+            state.user = null;
+            state.success = false;
+            state.error = null;
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
+        }
+    },
     extraReducers: (bilder) => {
         bilder
             .addCase(userLogIn.pending, (state) => {
@@ -32,4 +42,5 @@ const signin = createSlice({
     }
 })
 
+export const { logout } = signin.actions;
 export default signin.reducer;
