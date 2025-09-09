@@ -3,8 +3,6 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Link, useNavigate } from "react-router"
-import { UserRoundPlus } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
     Form,
@@ -31,7 +29,7 @@ const registerSchema = z.object({
 const Register = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const { loading, user } = useSelector((state) => state.signup)
+    const { loading, user } = useSelector((state) => state.userDetails)
 
     useEffect(() => {
         if (user) {

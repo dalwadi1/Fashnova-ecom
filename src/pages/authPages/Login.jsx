@@ -3,8 +3,6 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Link, useNavigate } from "react-router"
-import { ArrowLeftToLine, LogIn } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import {
     Form,
     FormControl,
@@ -27,7 +25,7 @@ const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const { loading, user } = useSelector((state) => state.sign)
+    const { loading, user } = useSelector((state) => state.userDetails)
 
     useEffect(() => {
         if (user) {
@@ -118,7 +116,7 @@ const Login = () => {
                                 className={
                                     loading
                                         ? "bg-sky-600 cursor-not-allowed opacity-50 px-8 rounded-sm py-1 mt-2 sm:text-sm text-xs w-full flex items-center justify-center"
-                                        : "bg-sky-800 hover:bg-sky-800 text-white px-8 rounded-sm py-3 mt-2 sm:text-sm text-xs w-full flex items-center justify-center"
+                                        : "bg-sky-800 cursor-pointer hover:bg-sky-800 text-white px-8 rounded-sm py-3 mt-2 sm:text-sm text-xs w-full flex items-center justify-center"
                                 }
                                 disabled={loading}
                             >

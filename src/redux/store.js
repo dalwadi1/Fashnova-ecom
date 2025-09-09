@@ -1,13 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import signup from "./slices/authSlice/signup";
-import signin from "./slices/authSlice/signin";
-import profileSlice from "./slices/authSlice/userProfile";
+import userSlice from "./slices/authSlice/auth.slice";
 
 
 export const store = configureStore({
     reducer: {
-        signup: signup,
-        sign: signin,
-        profile: profileSlice,
+        userDetails: userSlice
     }
 })

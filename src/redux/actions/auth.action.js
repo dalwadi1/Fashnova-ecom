@@ -59,3 +59,26 @@ export const getProfile = createAsyncThunk(
         }
     }
 );
+
+//Manage Profile
+export const ManageProfile = createAsyncThunk(
+    "user/manageprofile",
+    async (values, { rejectWithValue }) => {
+        try {
+            const res = await api.put("/auth/profile", values);
+
+            if (res.data.success) {
+                toast.success(res.data.msg)
+            } else {
+                toast.error(res.data.msg)
+            }
+
+            return res.data;
+        } catch (error) {
+            if (error.response && error.response.data.message) {
+                return rejectWithValue(error.response.data.message);
+            }
+            return rejectWithValue("Something went wrong! Please try again.");
+        }
+    }
+);

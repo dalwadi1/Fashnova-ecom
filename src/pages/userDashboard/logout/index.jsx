@@ -9,10 +9,8 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router";
-import { LogOut } from "lucide-react";
-import { Main_Logo1 } from "@/lib/svgFils";
-import { logout } from "@/redux/slices/authSlice/signin";
 import { useDispatch } from "react-redux";
+import { logout } from "@/redux/slices/authSlice/auth.slice";
 
 const Logout = ({ open, handleClose }) => {
     const dispatch = useDispatch()

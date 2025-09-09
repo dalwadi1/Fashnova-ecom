@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Mail, Phone, Camera } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProfile } from "@/redux/actions/auth.action";
-import { Button } from "@/components/ui/button";
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
+import { ManageProfile } from "@/redux/actions/auth.action";
 
 const ProfilePage = () => {
     const dispatch = useDispatch();
-    const { loading, user } = useSelector((state) => state.profile);
+    const { loading, user } = useSelector((state) => state.userDetails)
 
     const [formData, setFormData] = useState({
-        fullName: "",
+        name: "",
         email: "",
         phone: "",
         bio: "",
@@ -18,23 +16,17 @@ const ProfilePage = () => {
 
     const [profileImage, setProfileImage] = useState(null);
     const [profileFile, setProfileFile] = useState(null);
-    const [otpSent, setOtpSent] = useState(false);
-    const [otp, setOtp] = useState("");
-    const [otpVerified, setOtpVerified] = useState(false);
-
-    useEffect(() => {
-        dispatch(getProfile());
-    }, [dispatch]);
+    // const [otpSent, setOtpSent] = useState(false);
+    // const [otp, setOtp] = useState("");
+    // const [otpVerified, setOtpVerified] = useState(false);
 
     useEffect(() => {
         if (user) {
             setFormData({
-                fullName: user.name || "",
+                name: user.name || "",
                 email: user.email || "",
-                phone: user.phone ? user.phone.replace("+91", "") : "",
                 bio: user.bio || "",
             });
-            setProfileImage(user.profile || "/assets/images/products/bg/bg4.jpg");
         }
     }, [user]);
 
@@ -62,36 +54,33 @@ const ProfilePage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const finalData = new FormData();
-        finalData.append("fullName", formData.fullName);
-        finalData.append("email", formData.email);
-        finalData.append("phone", `+91${formData.phone}`);
-        finalData.append("bio", formData.bio);
+        const values = new FormData();
+        values.append("name", formData.name);
+        values.append("bio", formData.bio);
 
         if (profileFile) {
-            finalData.append("profile", profileFile);
+            values.append("profile", profileFile);
         }
 
-        for (let [key, val] of finalData.entries()) {
-            console.log(key, val);
-        }
+        setProfileFile(null)
+        dispatch(ManageProfile(values))
     };
 
-    const handleSendOtp = () => {
-        if (formData.phone.length === 10) {
-            console.log("OTP sent to:", `+91${formData.phone}`);
-            setOtpSent(true);
-        }
-    };
+    // const handleSendOtp = () => {
+    //     if (formData.phone.length === 10) {
+    //         console.log("OTP sent to:", `+91${formData.phone}`);
+    //         setOtpSent(true);
+    //     }
+    // };
 
-    const handleVerifyOtp = () => {
-        if (otp === "123456") {
-            setOtpVerified(true);
-            alert("OTP Verified Successfully ✅");
-        } else {
-            alert("Invalid OTP ❌");
-        }
-    };
+    // const handleVerifyOtp = () => {
+    //     if (otp === "123456") {
+    //         setOtpVerified(true);
+    //         alert("OTP Verified Successfully ✅");
+    //     } else {
+    //         alert("Invalid OTP ❌");
+    //     }
+    // };
 
     return (
         <div className="bg-gray-50 p-2 flex justify-center">
@@ -100,18 +89,18 @@ const ProfilePage = () => {
                 <div className="bg-white rounded-2xl shadow px-6 py-2 flex flex-col items-center">
                     <div className="relative">
                         <img
-                            src={profileImage}
+                            src={user?.profile || "/assets/gif/user_logo.jpg"}
                             alt="Profile"
                             className="w-32 h-32 rounded-full object-cover border-4 border-sky-200"
                         />
                         <label className="absolute bottom-2 right-2 bg-sky-600 text-white p-2 rounded-full shadow hover:bg-sky-700 cursor-pointer">
                             <Camera size={16} />
-                            <input
+                            {/* <input
                                 type="file"
                                 accept="image/*"
                                 onChange={handleFileChange}
                                 className="hidden"
-                            />
+                            /> */}
                         </label>
                     </div>
                     <h2 className="mt-4 text-xl font-bold">{user?.name}</h2>
@@ -143,8 +132,8 @@ const ProfilePage = () => {
                             </label>
                             <input
                                 type="text"
-                                name="fullName"
-                                value={formData.fullName}
+                                name="name"
+                                value={formData.name}
                                 onChange={handleChange}
                                 className="w-full text-xs sm:text-sm border rounded-lg px-3 py-2 focus:ring focus:ring-sky-200 outline-none"
                             />
@@ -159,6 +148,7 @@ const ProfilePage = () => {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
+                                disabled
                                 className="w-full border text-xs sm:text-sm rounded-lg px-3 py-2 focus:ring focus:ring-sky-200 outline-none"
                             />
                         </div>
@@ -176,7 +166,7 @@ const ProfilePage = () => {
                             />
                         </div>
 
-                        <div className="sm:col-span-2">
+                        {/* <div className="sm:col-span-2">
                             <label className="block text-xs sm:text-sm font-medium mb-1">
                                 Phone
                             </label>
@@ -196,33 +186,34 @@ const ProfilePage = () => {
                                         placeholder="Enter 10 digit mobile number"
                                         className="w-full text-xs sm:text-sm border rounded-lg px-3 py-2"
                                     />
-                                    <Button
+                                    <button
                                         type="button"
                                         disabled={formData.phone.length !== 10}
                                         onClick={handleSendOtp}
+                                        className="w-full px-4 py-2 rounded-lg bg-sky-600 text-white hover:bg-sky-700 text-xs sm:text-sm disabled:bg-gray-400"
                                     >
                                         Send OTP
-                                    </Button>
+                                    </button>
                                 </div>
                             </div>
 
                             {otpSent && !otpVerified && (
-                                <div className="mt-4 flex sm:flex-row flex-col gap-1 items-start justify-start">
-                                    <div>
+                                <div className="mt-4 flex sm:flex-row flex-col sm:gap-5 gap-1 items-start justify-start">
+                                    <div className="w-full">
                                         <label className="block text-xs sm:text-sm font-medium mb-1">
                                             OTP
                                         </label>
                                         <InputOTP maxLength={6} value={otp} onChange={setOtp}>
-                                            <InputOTPGroup>
+                                            <InputOTPGroup className='w-full'>
                                                 {Array.from({ length: 6 }).map((_, i) => (
-                                                    <InputOTPSlot key={i} index={i} />
+                                                    <InputOTPSlot key={i} index={i} className='w-full' />
                                                 ))}
                                             </InputOTPGroup>
                                         </InputOTP>
                                     </div>
                                     <Button
                                         type="button"
-                                        className="mt-2"
+                                        className="px-4 sm:mt-6 py-2 rounded-lg bg-sky-600 text-white hover:bg-sky-700 text-xs sm:text-sm disabled:bg-gray-400"
                                         onClick={handleVerifyOtp}
                                         disabled={otp.length !== 6}
                                     >
@@ -233,7 +224,7 @@ const ProfilePage = () => {
                             {otpVerified && (
                                 <p className="text-green-600 text-xs mt-2">OTP Verified ✅</p>
                             )}
-                        </div>
+                        </div> */}
 
                         <div className="sm:col-span-2">
                             <label className="block font-medium mb-1 text-xs sm:text-sm">
@@ -256,10 +247,21 @@ const ProfilePage = () => {
                             </button>
                             <button
                                 type="submit"
-                                disabled={formData.phone.length !== 10}
-                                className="px-4 py-2 rounded-lg bg-sky-600 text-white hover:bg-sky-700 text-xs sm:text-sm disabled:bg-gray-400"
+                                disabled={!profileFile}
+                                className={
+                                    loading
+                                        ? "bg-sky-600  cursor-not-allowed opacity-50 px-8 rounded-sm py-1 sm:text-sm text-xs flex items-center justify-center"
+                                        : "bg-sky-800 cursor-pointer hover:bg-sky-800 text-white px-8 rounded-sm py-2 sm:text-sm text-xs flex items-center justify-center"
+                                }
                             >
-                                Save Changes
+                                {loading ? <video
+                                    src="/assets/gif/loader/loading.mp4"
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    className="w-9 h-9 rounded-full"
+                                /> : 'Save Changes'}
                             </button>
                         </div>
                     </form>

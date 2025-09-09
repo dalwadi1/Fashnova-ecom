@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet, NavLink, useLocation, Link, useNavigate } from "react-router";
 import {
-    BadgeIndianRupee,
     Bell,
     CalendarArrowUp,
-    ChevronLeft,
     Heart,
     LogOut,
     Menu,
-    MoveLeft,
     NotebookTabs,
     ShieldAlert,
     ShoppingBag,
@@ -23,6 +20,8 @@ import {
 } from "@/components/ui/sheet"
 import Footer from "../mainLayout/footer";
 import Logout from "@/pages/userDashboard/logout";
+import { getProfile } from "@/redux/actions/auth.action";
+import { useDispatch, useSelector } from "react-redux";
 
 const userRoutes = [
     { path: "/user", label: "User", icon: <User /> },
@@ -38,10 +37,17 @@ const userRoutes = [
 ];
 
 const UserLayout = () => {
+    const dispatch = useDispatch()
     const location = useLocation();
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const [openDialog, setOpenDialog] = useState(false)
+
+    const { user } = useSelector((state) => state.userDetails)
+
+    useEffect(() => {
+        dispatch(getProfile());
+    }, [dispatch]);
 
     const activeCategory = location.state || "";
 
@@ -61,7 +67,7 @@ const UserLayout = () => {
         <div className="min-h-screen mx-auto">
             <div className="hidden sm:flex items-center bg-sky-100 p-4 rounded-lg sm:my-2 sticky top-1">
                 <div className="flex-1 flex flex-col gap-1 items-center">
-                    <h2 className="text-lg font-bold text-center">Welcome back, Rutvik 👋</h2>
+                    <h2 className="text-lg font-bold text-center">Welcome back, {user?.name} 👋</h2>
                     <p className="text-sm text-gray-600 text-center">
                         Manage your profile, orders, wishlist and more from your dashboard.
                     </p>
@@ -74,13 +80,13 @@ const UserLayout = () => {
                         <div className="flex flex-col gap-2 w-full">
                             <div className="flex items-center w-full bg-sky-50">
                                 <img
-                                    src="/assets/images/products/bg/bg4.jpg"
+                                    src={user?.profile || "/assets/gif/user_logo.jpg"}
                                     alt="user"
                                     className="max-w-[8vw] max-h-[8vh] rounded-full"
                                 />
                                 <div className="px-3 rounded-sm py-3">
                                     <p className="text-sm">Hello,</p>
-                                    <h4 className="text-sm font-bold">Rutvik Parmar</h4>
+                                    <h4 className="text-sm font-bold">{user?.name}</h4>
                                 </div>
                             </div>
 
