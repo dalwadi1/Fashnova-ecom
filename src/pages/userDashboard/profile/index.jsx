@@ -97,7 +97,7 @@ const ProfilePage = () => {
         <div className="bg-gray-50 p-2 flex justify-center">
             <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-                <div className="bg-white rounded-2xl shadow p-6 flex flex-col items-center">
+                <div className="bg-white rounded-2xl shadow px-6 py-2 flex flex-col items-center">
                     <div className="relative">
                         <img
                             src={profileImage}
@@ -115,7 +115,9 @@ const ProfilePage = () => {
                         </label>
                     </div>
                     <h2 className="mt-4 text-xl font-bold">{user?.name}</h2>
-                    <p className="text-gray-500 text-xs sm:text-sm">Front-End Developer</p>
+                    {
+                        user?.bio && <p className="text-gray-500 text-xs sm:text-sm">{user?.bio}</p>
+                    }
 
                     <div className="mt-6 w-full">
                         <div className="flex items-center gap-2 text-gray-600 mb-3 text-xs sm:text-sm">
@@ -129,14 +131,14 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                <div className="md:col-span-2 bg-white rounded-2xl shadow p-6">
+                <div className="sm:col-span-2 col-span-1 bg-white rounded-2xl shadow px-6 py-2">
                     <h3 className="text-lg font-bold mb-4">Profile Information</h3>
                     <form
                         onSubmit={handleSubmit}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                        className="grid grid-cols-1 sm:grid-cols-2 gap-4"
                     >
                         <div>
-                            <label className="block text-xs sm:text-sm font-medium mb-1">
+                            <label className="text-xs sm:text-sm font-medium mb-1">
                                 Full Name
                             </label>
                             <input
@@ -161,7 +163,7 @@ const ProfilePage = () => {
                             />
                         </div>
 
-                        <div className="col-span-2">
+                        <div className="sm:col-span-2">
                             <label className="block text-xs sm:text-sm font-medium mb-1">
                                 Profile
                             </label>
@@ -174,7 +176,7 @@ const ProfilePage = () => {
                             />
                         </div>
 
-                        <div className="md:col-span-2">
+                        <div className="sm:col-span-2">
                             <label className="block text-xs sm:text-sm font-medium mb-1">
                                 Phone
                             </label>
@@ -185,25 +187,27 @@ const ProfilePage = () => {
                                     readOnly
                                     className="w-16 text-xs sm:text-sm border rounded-lg px-3 py-2 bg-gray-100 text-gray-500"
                                 />
-                                <input
-                                    type="text"
-                                    name="phone"
-                                    value={formData.phone}
-                                    onChange={handleChange}
-                                    placeholder="Enter 10 digit mobile number"
-                                    className="w-full text-xs sm:text-sm border rounded-lg px-3 py-2"
-                                />
-                                <Button
-                                    type="button"
-                                    disabled={formData.phone.length !== 10}
-                                    onClick={handleSendOtp}
-                                >
-                                    Send OTP
-                                </Button>
+                                <div className="flex w-full items-center justify-between sm:flex-row flex-col gap-1">
+                                    <input
+                                        type="text"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        placeholder="Enter 10 digit mobile number"
+                                        className="w-full text-xs sm:text-sm border rounded-lg px-3 py-2"
+                                    />
+                                    <Button
+                                        type="button"
+                                        disabled={formData.phone.length !== 10}
+                                        onClick={handleSendOtp}
+                                    >
+                                        Send OTP
+                                    </Button>
+                                </div>
                             </div>
-                            {/* OTP Fields */}
+
                             {otpSent && !otpVerified && (
-                                <div className="mt-4 md:col-span-2 flex items-center justify-between">
+                                <div className="mt-4 flex sm:flex-row flex-col gap-1 items-start justify-start">
                                     <div>
                                         <label className="block text-xs sm:text-sm font-medium mb-1">
                                             OTP
@@ -231,7 +235,7 @@ const ProfilePage = () => {
                             )}
                         </div>
 
-                        <div className="md:col-span-2">
+                        <div className="sm:col-span-2">
                             <label className="block font-medium mb-1 text-xs sm:text-sm">
                                 Bio
                             </label>
@@ -243,7 +247,7 @@ const ProfilePage = () => {
                             ></textarea>
                         </div>
 
-                        <div className="md:col-span-2 flex sm:justify-end justify-between gap-3 w-full">
+                        <div className="sm:col-span-2 flex sm:justify-end justify-between gap-3 w-full">
                             <button
                                 type="button"
                                 className="px-4 py-2 rounded-lg border hover:bg-gray-100 text-xs sm:text-sm"
@@ -259,6 +263,7 @@ const ProfilePage = () => {
                             </button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
