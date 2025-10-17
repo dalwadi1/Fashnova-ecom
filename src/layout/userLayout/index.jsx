@@ -67,7 +67,10 @@ const UserLayout = () => {
         <div className="min-h-screen mx-auto">
             <div className="hidden sm:flex items-center bg-sky-100 p-4 rounded-lg sm:my-2 sticky top-1">
                 <div className="flex-1 flex flex-col gap-1 items-center">
-                    <h2 className="text-lg font-bold text-center">Welcome back, {user?.name} 👋</h2>
+                    <span className="text-sm font-bold flex items-center justify-center"><h2 className="text-sm font-bold truncate max-w-[180px] sm:max-w-[200px] md:max-w-[250px]">
+                        Welcome back, {user?.name}
+                    </h2>👋
+                    </span>
                     <p className="text-sm text-gray-600 text-center">
                         Manage your profile, orders, wishlist and more from your dashboard.
                     </p>
@@ -86,7 +89,10 @@ const UserLayout = () => {
                                 />
                                 <div className="px-3 rounded-sm py-3">
                                     <p className="text-sm">Hello,</p>
-                                    <h4 className="text-sm font-bold">{user?.name}</h4>
+                                    <h2 className="text-sm font-bold truncate max-w-[60px] sm:max-w-[200px] md:max-w-[70px]">
+                                        {user?.name}
+                                    </h2>
+                                    {/* <h4 className="text-sm font-bold">{user?.name}</h4> */}
                                 </div>
                             </div>
 
@@ -172,8 +178,11 @@ const UserLayout = () => {
                                 </div>
                                 <div className="min-h-screen">
                                     <div className="flex-1 bg-sky-100 py-2 sm:hidden mb-2">
-                                        <h2 className="text-lg font-bold text-center">Welcome back, Rutvik 👋</h2>
-                                        <p className="text-sm text-gray-600 text-center">
+                                        <span className="text-sm font-bold flex items-center justify-center"><h2 className="text-sm font-bold truncate max-w-[180px] sm:max-w-[200px] md:max-w-[250px]">
+                                            Welcome back, {user?.name}
+                                        </h2>👋
+                                        </span>
+                                        <p className="text-xs px-3 text-gray-600 text-center">
                                             Manage your profile, orders, wishlist and more from your dashboard.
                                         </p>
                                     </div>

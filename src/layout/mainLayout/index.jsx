@@ -16,6 +16,7 @@ const MainLyout = () => {
                 {/* Footer */}
                 <Footer />
             </div>
+
         </>
     )
 }

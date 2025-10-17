@@ -103,14 +103,16 @@ const ProfilePage = () => {
                             /> */}
                         </label>
                     </div>
-                    <h2 className="mt-4 text-xl font-bold">{user?.name}</h2>
+                    <h2 className="text-sm font-bold truncate max-w-[70px] sm:max-w-[200px] md:max-w-[70px]">
+                        {user?.name}
+                    </h2>
                     {
                         user?.bio && <p className="text-gray-500 text-xs sm:text-sm">{user?.bio}</p>
                     }
 
                     <div className="mt-6 w-full">
                         <div className="flex items-center gap-2 text-gray-600 mb-3 text-xs sm:text-sm">
-                            <Mail size={16} /> <span>{user?.email}</span>
+                            <Mail size={16} /> <span className="truncate max-w-[200px] sm:max-w-full md:max-w-[200px]">{user?.email}</span>
                         </div>
                         {user?.phone && (
                             <div className="flex items-center gap-2 text-gray-600 mb-3 text-xs sm:text-sm">
@@ -135,7 +137,7 @@ const ProfilePage = () => {
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="w-full text-xs sm:text-sm border rounded-lg px-3 py-2 focus:ring focus:ring-sky-200 outline-none"
+                                className="w-full truncate text-xs sm:text-sm border rounded-lg px-3 py-2 focus:ring focus:ring-sky-200 outline-none"
                             />
                         </div>
 

@@ -78,7 +78,7 @@ const Header = () => {
         setCartItems((prev) => prev.filter((item) => item.id !== id));
     };
     return (
-        <div className='sticky top-1 z-10 bg-white mb-3'>
+        <div className='sticky top-0 z-10 bg-white mb-3'>
             <div className='flex items-center sm:flex-row flex-col justify-between sm:px-10 px-2 shadow-lg rounded-sm bg-white border'>
                 <div className='w-full flex items-center justify-between py-2'>
                     <div className='flex items-center justify-between'>

@@ -14,14 +14,14 @@ const MiniNav = () => {
     }, [location])
 
     const categories = [
-        "Jeans",
-        "Shirts",
-        "tshirts",
-        "Nightwears",
-        "Pents",
-        "Cargos",
-        "Trousers",
-        "Formal Pents"
+        { category: "Pent", subCategory: "Jeans" },
+        { category: "Shirts", subCategory: "" },
+        { category: "T-shirts", subCategory: "" },
+        { category: "Nightwears", subCategory: "" },
+        { category: "Cargos", subCategory: "Cargos" },
+        { category: "Baggy", subCategory: "Baggy" },
+        { category: "Formal Pents", subCategory: "Formal Pents" },
+        { category: "Trousers", subCategory: "" },
     ]
 
     const handleClick = (category) => {
@@ -39,13 +39,13 @@ const MiniNav = () => {
                         className="shadow-lg"
                         color="black"
                         speed="5s"
-                        onClick={() => handleClick(cat)}
+                        onClick={() => handleClick(cat?.category)}
                     >
                         <li
                             className={`rounded-lg px-3 flex items-center justify-center py-2 cursor-pointer text-xs 
-              ${active === cat ? 'bg-black text-white' : 'bg-sky-50 text-gray-500'}`}
+              ${active === cat?.category ? 'bg-black text-white' : 'bg-sky-50 text-gray-500'}`}
                         >
-                            {cat}
+                            {cat?.category}
                         </li>
                     </StarBorder>
                 ))}
